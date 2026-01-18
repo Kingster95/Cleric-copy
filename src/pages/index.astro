@@ -1,11 +1,69 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Header from '../components/navigation/Header.astro';
+import Hero from '../components/sections/Hero.astro';
+import Stats from '../components/sections/Stats.astro';
+import Testimonial from '../components/sections/Testimonial.astro';
+import HowItWorks from '../components/sections/HowItWorks.astro';
+import ClericInAction from '../components/sections/ClericInAction.astro';
+import Foundations from '../components/sections/Foundations.astro';
+import Security from '../components/sections/Security.astro';
+import Integrations from '../components/sections/Integrations.astro';
+import CTA from '../components/sections/CTA.astro';
+import Footer from '../components/sections/Footer.astro';
 ---
 
 <Layout>
-	<Welcome />
+	<div class="main-container">
+		<Header />
+		<Hero />
+	</div>
+	<Stats />
+	<Testimonial />
+	<HowItWorks />
+	<ClericInAction />
+	<Foundations />
+	<Security />
+	<Integrations />
+	<CTA />
+	<Footer />
 </Layout>
+
+<style>
+	.main-container {
+		width: var(--main-container-width);
+		height: auto;
+		min-height: 100vh;
+		margin: 0 auto;
+		padding: var(--main-container-padding-top) var(--main-container-padding-right) var(--main-container-padding-bottom) var(--main-container-padding-left);
+		gap: var(--main-container-gap);
+		display: flex;
+		flex-direction: column;
+		opacity: 1;
+		position: relative;
+		overflow-x: hidden;
+		overflow-y: scroll;
+		background-image: url('/hero_background.jpg');
+		background-size: cover;
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-attachment: scroll;
+		object-fit: cover;
+	}
+
+	/* Responsive adjustments for very small screens */
+	@media (max-width: 480px) {
+		.main-container {
+			padding: 3vw 3vw 1vw 3vw;
+			gap: 2vw;
+		}
+	}
+
+	/* Ensure minimum padding for very large screens */
+	@media (min-width: 2560px) {
+		.main-container {
+			padding: 6rem 6rem 2rem 6rem;
+			gap: 4rem;
+		}
+	}
+</style>

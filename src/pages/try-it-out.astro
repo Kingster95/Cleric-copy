@@ -1,0 +1,672 @@
+---
+import Layout from '../layouts/Layout.astro';
+import '../styles/pages/try-it-out.css';
+---
+
+<Layout title="Try Cleric - Select Your Stack" description="See what Cleric can do for you by selecting your technology stack">
+  <main class="try-it-out-page">
+
+    <div class="page-container">
+      <div class="content-wrapper">
+        <!-- Left Side - Form -->
+        <div class="form-section">
+          <!-- Stack Selection Form (default view) -->
+          <div class="form-container stack-selection">
+            <!-- Back Button (initially hidden) -->
+            <div class="back-section" id="back-section" style="display: none;">
+              <button class="back-button" id="back-button">
+                ← Back
+              </button>
+            </div>
+
+            <h1 class="page-title">Cleric</h1>
+
+            <h2 class="section-title">Select your stack</h2>
+            <p class="section-description">
+              Select your stack to see if Cleric is a fit. If it is, get 4 weeks free.
+            </p>
+
+            <!-- Communication Section -->
+            <div class="form-group">
+              <label class="form-label">Communication *</label>
+              <div class="checkbox-grid">
+                <label class="checkbox-item">
+                  <input type="radio" name="communication" value="slack" />
+                  <span class="checkbox-icon"><img src="/logos/6.png" alt="Slack"></span>
+                  <span class="checkbox-label">Slack</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="radio" name="communication" value="teams" />
+                  <span class="checkbox-icon"><img src="/logos/teams.png" alt="Teams"></span>
+                  <span class="checkbox-label">Teams</span>
+                  <span class="coming-soon">Coming soon</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Logs Section -->
+            <div class="form-group">
+              <label class="form-label">Logs (select all that apply)</label>
+              <div class="checkbox-grid">
+                <label class="checkbox-item">
+                  <input type="checkbox" name="logs" value="datadog" />
+                  <span class="checkbox-icon"><img src="/logos/14.png" alt="Datadog"></span>
+                  <span class="checkbox-label">Datadog</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="logs" value="loki" />
+                  <span class="checkbox-icon loki-icon"></span>
+                  <span class="checkbox-label">Loki</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="logs" value="elasticsearch" />
+                  <span class="checkbox-icon elasticsearch-icon"></span>
+                  <span class="checkbox-label">Elasticsearch</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="logs" value="cloudwatch" />
+                  <span class="checkbox-icon cloudwatch-icon"></span>
+                  <span class="checkbox-label">CloudWatch</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="logs" value="gcp-logging" />
+                  <span class="checkbox-icon gcp-icon"></span>
+                  <span class="checkbox-label">GCP Logging</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="logs" value="splunk" />
+                  <span class="checkbox-icon splunk-icon"></span>
+                  <span class="checkbox-label">Splunk</span>
+                  <span class="coming-soon">Coming soon</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Infrastructure Section -->
+            <div class="form-group">
+              <label class="form-label">Infrastructure (select all that apply)</label>
+              <div class="checkbox-grid">
+                <label class="checkbox-item">
+                  <input type="checkbox" name="infrastructure" value="kubernetes" />
+                  <span class="checkbox-icon"><img src="/logos/1.png" alt="Kubernetes"></span>
+                  <span class="checkbox-label">Kubernetes</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="infrastructure" value="aws" />
+                  <span class="checkbox-icon"><img src="/logos/3.png" alt="AWS"></span>
+                  <span class="checkbox-label">Amazon Web Services</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="infrastructure" value="gcp" />
+                  <span class="checkbox-icon"><img src="/logos/15.png" alt="Google Cloud"></span>
+                  <span class="checkbox-label">Google Cloud Platform</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="infrastructure" value="azure" />
+                  <span class="checkbox-icon"><img src="/logos/12.png" alt="Azure"></span>
+                  <span class="checkbox-label">Azure</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Source Code Section -->
+            <div class="form-group">
+              <label class="form-label">Source Code (select all that apply)</label>
+              <div class="checkbox-grid">
+                <label class="checkbox-item">
+                  <input type="checkbox" name="source-code" value="github" />
+                  <span class="checkbox-icon"><img src="/logos/8.png" alt="GitHub"></span>
+                  <span class="checkbox-label">GitHub</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="source-code" value="gitlab" />
+                  <span class="checkbox-icon"><img src="/logos/9.png" alt="GitLab"></span>
+                  <span class="checkbox-label">GitLab</span>
+                  <span class="coming-soon">Coming soon</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Metrics Section -->
+            <div class="form-group">
+              <label class="form-label">Metrics (select all that apply)</label>
+              <div class="checkbox-grid">
+                <label class="checkbox-item">
+                  <input type="checkbox" name="metrics" value="prometheus" />
+                  <span class="checkbox-icon"><img src="/logos/11.png" alt="Prometheus"></span>
+                  <span class="checkbox-label">Prometheus</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="metrics" value="datadog" />
+                  <span class="checkbox-icon"><img src="/logos/14.png" alt="Datadog"></span>
+                  <span class="checkbox-label">Datadog</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="metrics" value="cloudwatch" />
+                  <span class="checkbox-icon cloudwatch-metrics-icon"></span>
+                  <span class="checkbox-label">CloudWatch</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="metrics" value="gcp-metrics" />
+                  <span class="checkbox-icon"><img src="/logos/15.png" alt="Google Cloud"></span>
+                  <span class="checkbox-label">GCP Metrics</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Bottom Summary -->
+            <div class="form-summary">
+              <div class="summary-row">
+                <div class="summary-info">
+                  <strong>Select your stack</strong> | <span id="enabled-count">0</span>/5 enabled | <span id="fit-status" class="fit-status"></span>
+                </div>
+                <!-- Continue Button (initially hidden) -->
+                <button class="continue-button" id="continue-button" style="display: none;">Continue</button>
+              </div>
+              <div class="summary-description">
+                See what Cleric can do for you
+              </div>
+            </div>
+          </div>
+
+          <!-- Connect Form (initially hidden) -->
+          <div class="form-container connect-form" id="connect-form" style="display: none;">
+            <div class="back-section">
+              <button class="back-button" id="back-button-connect">
+                ← Back
+              </button>
+            </div>
+
+            <h1 class="page-title">Cleric</h1>
+
+            <h2 class="connect-title">Connect with the Cleric team</h2>
+            <p class="connect-description">
+              A Cleric engineer will set up your dedicated instance (ready in ~24 hours).
+              We'll send a Slack Connect invite to share credentials securely and answer questions during setup.
+            </p>
+
+            <!-- Name Field -->
+            <div class="form-group">
+              <label class="form-label">Name *</label>
+              <input type="text" class="form-input" id="contact-name" placeholder="Your name" required />
+            </div>
+
+            <!-- Work Email Field -->
+            <div class="form-group">
+              <label class="form-label">Work email *</label>
+              <input type="email" class="form-input" id="contact-email" placeholder="you@company.com" required />
+            </div>
+
+            <!-- What are you looking to solve -->
+            <div class="form-group">
+              <label class="form-label">What are you looking to solve? *</label>
+              <div class="checkbox-list">
+                <label class="checkbox-item-simple">
+                  <input type="checkbox" name="problems" value="noisy-alerts" />
+                  <span class="checkbox-label">Too many alerts / noisy alerts</span>
+                </label>
+                <label class="checkbox-item-simple">
+                  <input type="checkbox" name="problems" value="slow-rca" />
+                  <span class="checkbox-label">Slow RCA process</span>
+                </label>
+                <label class="checkbox-item-simple">
+                  <input type="checkbox" name="problems" value="cross-team-incidents" />
+                  <span class="checkbox-label">Cross-team incidents</span>
+                </label>
+                <label class="checkbox-item-simple">
+                  <input type="checkbox" name="problems" value="sre-agent" />
+                  <span class="checkbox-label">We use coding agents and want to explore an SRE agent</span>
+                </label>
+                <label class="checkbox-item-simple">
+                  <input type="checkbox" name="problems" value="other" />
+                  <span class="checkbox-label">Other</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Additional Info -->
+            <div class="form-group">
+              <label class="form-label">Anything else about your setup we should know?</label>
+              <textarea class="form-textarea" id="additional-info" placeholder="Optional - e.g., 'We use custom auth for K8s'" rows="4"></textarea>
+            </div>
+
+            <!-- Terms and Conditions -->
+            <div class="form-group">
+              <label class="checkbox-item-simple terms">
+                <input type="checkbox" id="terms-accepted" required />
+                <span class="checkbox-label">I accept the <a href="#" class="terms-link">Terms & Conditions</a></span>
+              </label>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-group">
+              <button class="submit-button" id="submit-form">Book a Call</button>
+            </div>
+
+            <!-- Alternative Option -->
+            <div class="alternative-section">
+              <button class="alternative-button">I'd rather speak with an engineer</button>
+            </div>
+
+            <!-- Questions -->
+            <div class="questions-section">
+              <span class="questions-text">Questions? <a href="#" class="email-link">Email us</a></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side - Assessment -->
+        <div class="assessment-section">
+          <div class="assessment-content">
+            <!-- Default Assessment Header -->
+            <div class="assessment-header default-assessment">
+              <span class="assessment-tag">ASSESSMENT</span>
+              <h3 class="assessment-title">Select your stack</h3>
+              <p class="assessment-subtitle">See what Cleric can do for you</p>
+            </div>
+
+            <!-- Assessment Result Card (initially hidden) -->
+            <div class="assessment-result-card" style="display: none;">
+              <span class="assessment-tag">ASSESSMENT</span>
+              <h3 class="result-title">Insufficient stack coverage</h3>
+              <p class="result-subtitle">Requires logs or metrics integration</p>
+
+              <div class="capabilities-section">
+                <h4 class="capabilities-title">WHAT CLERIC CAN DO:</h4>
+
+                <div class="capability-item enabled">
+                  <div class="capability-icon">✓</div>
+                  <div class="capability-content">
+                    <h5>Auto-receive alerts via Slack</h5>
+                    <p>Cleric joins your Slack channels to receive alerts and respond with investigations automatically</p>
+                  </div>
+                </div>
+
+                <div class="capability-item disabled">
+                  <div class="capability-icon">○</div>
+                  <div class="capability-content">
+                    <h5>Search logs and trace errors</h5>
+                    <p>Query log systems to find error patterns, trace request flows, and identify root causes across distributed services</p>
+                  </div>
+                </div>
+
+                <div class="capability-item disabled">
+                  <div class="capability-icon">○</div>
+                  <div class="capability-content">
+                    <h5>Query metrics and detect anomalies</h5>
+                    <p>Analyze time-series data to identify performance degradations, resource bottlenecks, and abnormal patterns</p>
+                  </div>
+                </div>
+
+                <div class="capability-item disabled">
+                  <div class="capability-icon">○</div>
+                  <div class="capability-content">
+                    <h5>Debug infrastructure state</h5>
+                    <p>Run kubectl, AWS CLI, and other cloud tools to inspect pods, containers, deployments, and cloud resources during investigations</p>
+                  </div>
+                </div>
+
+                <div class="capability-item disabled">
+                  <div class="capability-icon">○</div>
+                  <div class="capability-content">
+                    <h5>Analyze code, deployments, and CI/CD</h5>
+                    <p>Review recent code changes, examine deployment history, check CI/CD logs, and suggest code fixes based on error patterns</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Integrations Grid -->
+            <div class="integrations-section">
+              <h4 class="integrations-title">INTEGRATIONS</h4>
+              <div class="integrations-grid">
+                <div class="integration-item">
+                  <img src="/big-logos/slack.webp" alt="Slack" class="integration-logo">
+                </div>
+                <div class="integration-item">
+                  <img src="/big-logos/datadog.webp" alt="Datadog" class="integration-logo">
+                </div>
+                <div class="integration-item">
+                  <img src="/big-logos/grafana.webp" alt="Grafana" class="integration-logo">
+                </div>
+                <div class="integration-item">
+                  <img src="/big-logos/Elasticsearch.webp" alt="Elasticsearch" class="integration-logo">
+                </div>
+                <div class="integration-item">
+                  <img src="/big-logos/kubernetes.webp" alt="Kubernetes" class="integration-logo">
+                </div>
+                <div class="integration-item">
+                  <img src="/big-logos/aws.webp" alt="AWS" class="integration-logo">
+                </div>
+                <div class="integration-item">
+                  <img src="/big-logos/google cloud.webp" alt="Google Cloud" class="integration-logo">
+                </div>
+                <div class="integration-item">
+                  <img src="/big-logos/azure.webp" alt="Azure" class="integration-logo">
+                </div>
+                <div class="integration-item">
+                  <img src="/big-logos/github.webp" alt="GitHub" class="integration-logo">
+                </div>
+                <div class="integration-item">
+                  <img src="/big-logos/prometheus.webp" alt="Prometheus" class="integration-logo">
+                </div>
+                <div class="integration-item">
+                  <img src="/big-logos/pagerduty.webp" alt="PagerDuty" class="integration-logo">
+                </div>
+                <div class="integration-item">
+                  <img src="/big-logos/confluence.webp" alt="Confluence" class="integration-logo">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const defaultAssessment = document.querySelector('.default-assessment');
+    const assessmentResult = document.querySelector('.assessment-result-card');
+    const integrationsSection = document.querySelector('.integrations-section');
+
+    // Add value attributes to radio buttons for easier targeting
+    document.querySelectorAll('input[name="communication"]')[0].value = 'slack';
+    document.querySelectorAll('input[name="communication"]')[1].value = 'teams';
+
+    // Function to update capabilities based on selections
+    function updateCapabilities() {
+      const communicationChecked = document.querySelector('input[name="communication"]:checked');
+      const enabledCountElement = document.getElementById('enabled-count');
+      const continueButton = document.getElementById('continue-button');
+      const fitStatusElement = document.getElementById('fit-status');
+
+      // Get all capability items
+      const capabilities = document.querySelectorAll('.capability-item');
+      let enabledCount = 0;
+
+      if (communicationChecked) {
+        // Show assessment result
+        defaultAssessment.style.display = 'none';
+        assessmentResult.style.display = 'block';
+        integrationsSection.style.display = 'block';
+
+        // Reset all capabilities to disabled first
+        capabilities.forEach(cap => {
+          cap.classList.remove('enabled');
+          cap.classList.add('disabled');
+          const icon = cap.querySelector('.capability-icon');
+          icon.textContent = '○';
+        });
+
+        // Enable communication capability (always first when communication is selected)
+        if (capabilities[0]) {
+          capabilities[0].classList.remove('disabled');
+          capabilities[0].classList.add('enabled');
+          capabilities[0].querySelector('.capability-icon').textContent = '✓';
+          enabledCount++;
+        }
+
+        // Check for logs/metrics selections to enable other capabilities
+        let hasLogs = false;
+        let hasMetrics = false;
+        let hasInfrastructure = false;
+        let hasSourceCode = false;
+
+        // Check logs specifically
+        const logsChecked = document.querySelectorAll('input[name="logs"]:checked');
+        if (logsChecked.length > 0) {
+          hasLogs = true;
+        }
+
+        // Check infrastructure specifically
+        const infrastructureChecked = document.querySelectorAll('input[name="infrastructure"]:checked');
+        if (infrastructureChecked.length > 0) {
+          hasInfrastructure = true;
+        }
+
+        // Check source code specifically
+        const sourceCodeChecked = document.querySelectorAll('input[name="source-code"]:checked');
+        if (sourceCodeChecked.length > 0) {
+          hasSourceCode = true;
+        }
+
+        // Check metrics specifically
+        const metricsChecked = document.querySelectorAll('input[name="metrics"]:checked');
+        if (metricsChecked.length > 0) {
+          hasMetrics = true;
+        }
+
+        // Enable capabilities based on selections
+        if (hasLogs && capabilities[1]) {
+          // Enable "Search logs and trace errors"
+          capabilities[1].classList.remove('disabled');
+          capabilities[1].classList.add('enabled');
+          capabilities[1].querySelector('.capability-icon').textContent = '✓';
+          enabledCount++;
+        }
+
+        if (hasMetrics && capabilities[2]) {
+          // Enable "Query metrics and detect anomalies"
+          capabilities[2].classList.remove('disabled');
+          capabilities[2].classList.add('enabled');
+          capabilities[2].querySelector('.capability-icon').textContent = '✓';
+          enabledCount++;
+        }
+
+        if (hasInfrastructure && capabilities[3]) {
+          // Enable "Debug infrastructure state"
+          capabilities[3].classList.remove('disabled');
+          capabilities[3].classList.add('enabled');
+          capabilities[3].querySelector('.capability-icon').textContent = '✓';
+          enabledCount++;
+        }
+
+        if (hasSourceCode && capabilities[4]) {
+          // Enable "Analyze code, deployments, and CI/CD"
+          capabilities[4].classList.remove('disabled');
+          capabilities[4].classList.add('enabled');
+          capabilities[4].querySelector('.capability-icon').textContent = '✓';
+          enabledCount++;
+        }
+
+        // Show continue button if communication + at least one other category is selected
+        if (enabledCount >= 2) {
+          continueButton.style.display = 'block';
+        } else {
+          continueButton.style.display = 'none';
+        }
+
+      } else {
+        // No communication selected - show default
+        defaultAssessment.style.display = 'block';
+        assessmentResult.style.display = 'none';
+        integrationsSection.style.display = 'block';
+        continueButton.style.display = 'none';
+      }
+
+      // Update counter
+      enabledCountElement.textContent = enabledCount;
+
+      // Update fit status
+      function updateFitStatus(count) {
+        // Reset all classes
+        fitStatusElement.className = 'fit-status';
+
+        switch(count) {
+          case 0:
+            fitStatusElement.textContent = '';
+            break;
+          case 1:
+            fitStatusElement.textContent = 'Poor Fit';
+            fitStatusElement.classList.add('poor-fit');
+            break;
+          case 2:
+            fitStatusElement.textContent = 'Minimal Fit';
+            fitStatusElement.classList.add('minimal-fit');
+            break;
+          case 3:
+            fitStatusElement.textContent = 'Good Fit';
+            fitStatusElement.classList.add('good-fit');
+            break;
+          case 4:
+            fitStatusElement.textContent = 'Good Fit';
+            fitStatusElement.classList.add('good-fit');
+            break;
+          case 5:
+            fitStatusElement.textContent = 'Excellent Fit';
+            fitStatusElement.classList.add('excellent-fit');
+            break;
+        }
+      }
+
+      updateFitStatus(enabledCount);
+    }
+
+    // Listen for changes on all form inputs
+    document.addEventListener('change', function(e) {
+      if (e.target.matches('input[type="radio"], input[type="checkbox"]')) {
+        updateCapabilities();
+      }
+    });
+
+    // Handle Continue button click
+    document.getElementById('continue-button').addEventListener('click', function() {
+      // Hide stack selection form
+      document.querySelector('.stack-selection').style.display = 'none';
+
+      // Show connect form
+      document.getElementById('connect-form').style.display = 'block';
+    });
+
+    // Handle Back button click
+    document.getElementById('back-button-connect').addEventListener('click', function() {
+      // Hide connect form
+      document.getElementById('connect-form').style.display = 'none';
+
+      // Show stack selection form
+      document.querySelector('.stack-selection').style.display = 'block';
+    });
+
+    // Handle Form Submission
+    document.getElementById('submit-form').addEventListener('click', function(e) {
+      e.preventDefault();
+
+      // Validate required fields
+      const name = document.getElementById('contact-name').value.trim();
+      const email = document.getElementById('contact-email').value.trim();
+      const termsAccepted = document.getElementById('terms-accepted').checked;
+
+      if (!name || !email || !termsAccepted) {
+        alert('Please fill in all required fields and accept the terms and conditions.');
+        return;
+      }
+
+      // Collect all form data
+      const formData = collectFormData();
+
+      try {
+        // Disable submit button during submission
+        this.disabled = true;
+        this.textContent = 'Submitting...';
+
+        // Use hidden form approach to bypass CORS
+        submitToWebhook(formData);
+
+        // Show success message
+        alert('Form submitted successfully! We will be in touch soon.');
+
+        // Reset form if needed
+        // resetForm();
+
+      } catch (error) {
+        console.error('Error submitting form:', error);
+        alert('There was an error submitting the form. Please try again.');
+      } finally {
+        // Re-enable submit button
+        this.disabled = false;
+        this.textContent = 'Book a Call';
+      }
+    });
+
+    // Function to submit data to webhook using hidden form
+    function submitToWebhook(data) {
+      // Create a hidden form
+      const form = document.createElement('form');
+      form.method = 'POST';
+      form.action = 'https://webhook.site/fef69908-822e-4789-a617-0b660c293761';
+      form.target = '_blank'; // Open in new tab so user stays on page
+      form.style.display = 'none';
+
+      // Add JSON data as form field
+      const input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = 'data';
+      input.value = JSON.stringify(data, null, 2);
+
+      form.appendChild(input);
+      document.body.appendChild(form);
+
+      // Submit and remove form
+      form.submit();
+      document.body.removeChild(form);
+    }
+
+    // Function to collect all form data into JSON
+    function collectFormData() {
+      // Stack Selection Data
+      const communication = document.querySelector('input[name="communication"]:checked')?.value || null;
+
+      const logs = Array.from(document.querySelectorAll('input[name="logs"]:checked'))
+        .map(input => input.value);
+
+      const infrastructure = Array.from(document.querySelectorAll('input[name="infrastructure"]:checked'))
+        .map(input => input.value);
+
+      const sourceCode = Array.from(document.querySelectorAll('input[name="source-code"]:checked'))
+        .map(input => input.value);
+
+      const metrics = Array.from(document.querySelectorAll('input[name="metrics"]:checked'))
+        .map(input => input.value);
+
+      // Contact Form Data
+      const name = document.getElementById('contact-name')?.value || '';
+      const email = document.getElementById('contact-email')?.value || '';
+
+      const problems = Array.from(document.querySelectorAll('input[name="problems"]:checked'))
+        .map(input => input.value);
+
+      const additionalInfo = document.getElementById('additional-info')?.value || '';
+      const termsAccepted = document.getElementById('terms-accepted')?.checked || false;
+
+      // Assessment Results
+      const enabledCount = parseInt(document.getElementById('enabled-count')?.textContent) || 0;
+      const fitStatus = document.getElementById('fit-status')?.textContent || '';
+
+      // Build the complete JSON object
+      return {
+        timestamp: new Date().toISOString(),
+        stack: {
+          communication: communication,
+          logs: logs,
+          infrastructure: infrastructure,
+          sourceCode: sourceCode,
+          metrics: metrics
+        },
+        assessment: {
+          enabledCapabilities: enabledCount,
+          fitStatus: fitStatus
+        },
+        contact: {
+          name: name,
+          email: email,
+          problems: problems,
+          additionalInfo: additionalInfo,
+          termsAccepted: termsAccepted
+        }
+      };
+    }
+  });
+</script>

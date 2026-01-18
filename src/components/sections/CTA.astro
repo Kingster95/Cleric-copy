@@ -1,0 +1,196 @@
+---
+// CTA section component
+export interface Props {
+  className?: string;
+}
+
+const { className = '' } = Astro.props;
+---
+
+<section class={`cta ${className}`}>
+  <div class="cta-card">
+    <div class="container">
+      <div class="cta-content">
+        <div class="cta-text">
+          <h2 class="cta-title">Unblock your engineers.<br>Start in minutes.</h2>
+          <p class="cta-subtitle">Setup takes minutes. Read-only by default.</p>
+        </div>
+
+        <div class="cta-actions">
+          <a href="/try-it-out" class="cta-button primary">Start for free</a>
+          <a href="/try-it-out" class="cta-button secondary">Request Demo</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta {
+    position: relative;
+    width: 100vw;
+    padding: clamp(80px, 6.25vw, 120px) 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  .cta-card {
+    position: relative;
+    width: clamp(800px, 62.08vw, 1192px);
+    height: clamp(350px, 26.82vw, 515px);
+    background-image: url('/cta-background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 16px;
+    padding: clamp(80px, 6.25vw, 120px);
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .cta-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 16px;
+    z-index: 1;
+  }
+
+  .container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+  }
+
+  .cta-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: clamp(40px, 3.33vw, 64px);
+    max-width: 600px;
+  }
+
+  .cta-text {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(16px, 1.5vw, 24px);
+  }
+
+  .cta-title {
+    font-family: 'GT Alpina', var(--font-family-title);
+    font-weight: 600;
+    font-style: normal;
+    font-size: clamp(32px, 2.5vw, 48px);
+    line-height: 114.99999999999999%;
+    letter-spacing: -3%;
+    vertical-align: middle;
+    color: #FFFFFF;
+    margin: 0;
+  }
+
+  .cta-subtitle {
+    font-family: 'Cleric Sans Text', var(--font-family-subtitle);
+    font-weight: 500;
+    font-style: normal;
+    font-size: clamp(18px, 1.25vw, 24px);
+    line-height: 125%;
+    letter-spacing: 0.75%;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+  }
+
+  .cta-actions {
+    display: flex;
+    gap: clamp(16px, 1.5vw, 24px);
+    flex-wrap: wrap;
+  }
+
+  .cta-button {
+    font-family: 'Cleric Sans Text', var(--font-family-subtitle);
+    font-weight: 600;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 1.4;
+    width: clamp(140px, 8.33vw, 160px);
+    height: clamp(35px, 2.14vw, 41px);
+    min-width: 160px;
+    border-radius: 150px;
+    padding-top: clamp(8px, 0.52vw, 10px);
+    padding-right: clamp(18px, 1.25vw, 24px);
+    padding-bottom: clamp(8px, 0.52vw, 10px);
+    padding-left: clamp(18px, 1.25vw, 24px);
+    gap: clamp(6px, 0.42vw, 8px);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  .cta-button.primary {
+    background: #FFFFFF;
+    color: #313131;
+    border: none;
+  }
+
+  .cta-button.primary:hover {
+    background: #F5F5F5;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .cta-button.secondary {
+    background: #FFFFFF0D;
+    color: #FFFFFF;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .cta-button.secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+  }
+
+  /* Mobile Styles */
+  @media (max-width: 768px) {
+    .cta-content {
+      align-items: center;
+      text-align: center;
+      max-width: 100%;
+    }
+
+    .cta-actions {
+      justify-content: center;
+      width: 100%;
+    }
+
+    .cta-button {
+      flex: 1;
+      min-width: 140px;
+      max-width: 200px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .cta-actions {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .cta-button {
+      width: 100%;
+      max-width: 280px;
+    }
+  }
+</style>

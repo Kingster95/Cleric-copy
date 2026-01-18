@@ -1,0 +1,291 @@
+---
+// Integrations section component
+export interface Props {
+  className?: string;
+}
+
+const { className = '' } = Astro.props;
+---
+
+<section class={`integrations ${className}`}>
+  <div class="container">
+    <div class="section-header">
+      <div class="section-badge">Integrations</div>
+      <h2 class="section-title">Built to plug right into your stack</h2>
+      <p class="section-subtitle">Connect your whole stack in an afternoon. Read access by default, write access when you're ready.</p>
+    </div>
+
+    <div class="integrations-container">
+      <!-- First row - 8 icons -->
+      <div class="integrations-row first-row">
+        <div class="integration-item">
+          <img src="/logos/1.png" alt="Integration Logo 1" class="integration-icon" />
+        </div>
+        <div class="integration-item">
+          <img src="/logos/2.png" alt="Integration Logo 2" class="integration-icon" />
+        </div>
+        <div class="integration-item">
+          <img src="/logos/3.png" alt="Integration Logo 3" class="integration-icon" />
+        </div>
+        <div class="integration-item">
+          <img src="/logos/4.png" alt="Integration Logo 4" class="integration-icon" />
+        </div>
+        <div class="integration-item">
+          <img src="/logos/5.png" alt="Integration Logo 5" class="integration-icon" />
+        </div>
+        <div class="integration-item">
+          <img src="/logos/6.png" alt="Integration Logo 6" class="integration-icon" />
+        </div>
+        <div class="integration-item">
+          <img src="/logos/7.png" alt="Integration Logo 7" class="integration-icon" />
+        </div>
+        <div class="integration-item">
+          <img src="/logos/8.png" alt="Integration Logo 8" class="integration-icon" />
+        </div>
+      </div>
+
+      <!-- Second row - 7 icons centered -->
+      <div class="integrations-row second-row">
+        <div class="integration-item">
+          <img src="/logos/9.png" alt="Integration Logo 9" class="integration-icon" />
+        </div>
+        <div class="integration-item">
+          <img src="/logos/10.png" alt="Integration Logo 10" class="integration-icon" />
+        </div>
+        <div class="integration-item">
+          <img src="/logos/11.png" alt="Integration Logo 11" class="integration-icon" />
+        </div>
+        <div class="integration-item">
+          <img src="/logos/12.png" alt="Integration Logo 12" class="integration-icon" />
+        </div>
+        <div class="integration-item">
+          <img src="/logos/13.png" alt="Integration Logo 13" class="integration-icon" />
+        </div>
+        <div class="integration-item">
+          <img src="/logos/14.png" alt="Integration Logo 14" class="integration-icon" />
+        </div>
+        <div class="integration-item">
+          <img src="/logos/15.png" alt="Integration Logo 15" class="integration-icon" />
+        </div>
+      </div>
+    </div>
+
+    <div class="section-footer">
+      <div class="stack-fit-link">
+        <span class="link-text">See if Cleric is a fit for your stack</span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 8H13M13 8L8 3M13 8L8 13" stroke="#666666" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .integrations {
+    position: relative;
+    background: #FFFFFF;
+    width: 100vw;
+    padding: clamp(80px, 6.25vw, 120px) clamp(50px, 4.17vw, 80px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: clamp(40px, 3.33vw, 64px);
+  }
+
+  .section-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(16px, 1.25vw, 24px);
+    max-width: 1000px;
+  }
+
+  .section-badge {
+    width: clamp(90px, 5.89vw, 113px);
+    height: clamp(26px, 1.67vw, 32px);
+    border-radius: 4px;
+    padding-top: clamp(8px, 0.52vw, 10px);
+    padding-right: clamp(12px, 0.83vw, 16px);
+    padding-bottom: clamp(8px, 0.52vw, 10px);
+    padding-left: clamp(12px, 0.83vw, 16px);
+    gap: clamp(3px, 0.21vw, 4px);
+    background: #E0E0E0;
+    color: #666666;
+    font-family: 'Cleric Sans Text', var(--font-family-subtitle);
+    font-weight: 600;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 120%;
+    letter-spacing: -0.25%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  .section-title {
+    font-family: 'GT Alpina', var(--font-family-title);
+    font-weight: 500;
+    font-style: normal;
+    font-size: clamp(32px, 2.5vw, 48px);
+    line-height: 114.99999999999999%;
+    letter-spacing: -0.5%;
+    text-align: center;
+    vertical-align: bottom;
+    color: #313131;
+    margin: 0;
+  }
+
+  .section-subtitle {
+    font-family: 'Cleric Sans Text', var(--font-family-subtitle);
+    font-weight: 500;
+    font-style: normal;
+    font-size: clamp(18px, 1.25vw, 24px);
+    line-height: 125%;
+    letter-spacing: 0.75%;
+    text-align: center;
+    color: #6B6B6B;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .integrations-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(12px, 0.83vw, 16px);
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .integrations-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(40px, 4.17vw, 80px);
+  }
+
+  .first-row {
+    /* 8 icons - full width */
+  }
+
+  .second-row {
+    /* 7 icons - centered */
+  }
+
+  .integration-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: clamp(60px, 4.17vw, 80px);
+    height: clamp(60px, 4.17vw, 80px);
+    border-radius: 12px;
+    background: #F7F9FA;
+    border: 1px solid #EAEAEA;
+    padding: clamp(12px, 1vw, 16px);
+    box-sizing: border-box;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .integration-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .integration-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 1;
+    transition: transform 0.2s ease;
+  }
+
+  .integration-item:hover .integration-icon {
+    transform: scale(1.1);
+  }
+
+  .section-footer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .stack-fit-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+  }
+
+  .stack-fit-link:hover {
+    opacity: 0.8;
+  }
+
+  .link-text {
+    font-family: 'Cleric Sans Text', var(--font-family-subtitle);
+    font-weight: 500;
+    font-style: normal;
+    font-size: 15px;
+    line-height: 140%;
+    letter-spacing: 0%;
+    text-align: center;
+    vertical-align: middle;
+    color: #666666;
+    text-decoration: none;
+  }
+
+  /* Tablet Styles */
+  @media (max-width: 1024px) {
+    .integrations-row {
+      gap: clamp(30px, 3vw, 60px);
+    }
+
+    .integrations-container {
+      gap: clamp(10px, 1vw, 14px);
+    }
+  }
+
+  /* Phone Styles */
+  @media (max-width: 768px) {
+    .integrations-row {
+      gap: clamp(16px, 4vw, 32px);
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .integrations-container {
+      gap: clamp(8px, 1.5vw, 12px);
+    }
+
+    .integration-item {
+      width: clamp(40px, 8vw, 48px);
+      height: clamp(40px, 8vw, 48px);
+    }
+
+    /* Stack icons in 5 per row on mobile */
+    .first-row {
+      max-width: calc(5 * (clamp(40px, 8vw, 48px) + clamp(16px, 4vw, 32px)) - clamp(16px, 4vw, 32px));
+    }
+
+    .second-row {
+      max-width: calc(5 * (clamp(40px, 8vw, 48px) + clamp(16px, 4vw, 32px)) - clamp(16px, 4vw, 32px));
+    }
+  }
+</style>

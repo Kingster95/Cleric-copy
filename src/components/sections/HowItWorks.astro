@@ -1,0 +1,138 @@
+---
+// How It Works section component
+export interface Props {
+  className?: string;
+}
+
+const { className = '' } = Astro.props;
+---
+
+<section class={`how-it-works ${className}`}>
+  <div class="container">
+    <div class="section-header">
+      <div class="section-badge">How it works</div>
+      <h2 class="section-title">Meet Cleric</h2>
+      <p class="section-subtitle">Cleric investigates problems, surfaces answers, and learns from your engineers.</p>
+    </div>
+    <div class="diagram-container">
+      <img src="/diagram.png" alt="How Cleric Works - Platform Engineering, Application Engineering, and SRE workflow diagram" class="diagram-image" />
+    </div>
+  </div>
+</section>
+
+<style>
+  .how-it-works {
+    position: relative;
+    background: linear-gradient(0deg, #F8F8F8 -0.04%, #F7F9FA 100%);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .container {
+    width: 1370px;
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 3.45rem;
+  }
+
+  .section-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.15rem;
+    max-width: 920px;
+  }
+
+  .section-badge {
+    width: clamp(95px, 6.2vw, 119px);
+    height: clamp(26px, 1.67vw, 32px);
+    border-radius: 4px;
+    padding-top: clamp(8px, 0.52vw, 10px);
+    padding-right: clamp(13px, 0.83vw, 16px);
+    padding-bottom: clamp(8px, 0.52vw, 10px);
+    padding-left: clamp(13px, 0.83vw, 16px);
+    gap: clamp(3px, 0.21vw, 4px);
+    transform: rotate(0deg);
+    opacity: 1;
+    background: #E0E0E0;
+    color: #666666;
+    font-family: var(--font-family-subtitle);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    box-sizing: border-box;
+  }
+
+  .section-title {
+    font-family: 'GT Alpina', var(--font-family-title);
+    font-weight: 500;
+    font-style: normal;
+    font-size: clamp(32px, 2.5vw, 48px);
+    line-height: 114.99999999999999%;
+    letter-spacing: -0.5%;
+    text-align: center;
+    vertical-align: bottom;
+    color: #313131;
+    margin: 0;
+  }
+
+  .section-subtitle {
+    font-family: 'Cleric Sans Text', var(--font-family-subtitle);
+    font-weight: 500;
+    font-style: normal;
+    font-size: clamp(18px, 1.25vw, 24px);
+    line-height: 125%;
+    letter-spacing: 0.75%;
+    text-align: center;
+    color: #6B6B6B;
+    margin: 0;
+  }
+
+  .diagram-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .diagram-image {
+    width: 1370px;
+    height: auto;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  /* Mobile Styles */
+  @media (max-width: 767px) {
+    .how-it-works {
+      padding: 3rem 0;
+    }
+
+    .container {
+      gap: 2rem;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+    }
+
+    .section-subtitle {
+      font-size: 1.1rem;
+    }
+
+    .diagram-image {
+      border-radius: var(--radius-md);
+    }
+  }
+</style>

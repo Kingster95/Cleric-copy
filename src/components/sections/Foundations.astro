@@ -1,0 +1,303 @@
+---
+// Foundations section component
+export interface Props {
+  className?: string;
+}
+
+const { className = '' } = Astro.props;
+---
+
+<section class={`foundations ${className}`}>
+  <div class="container">
+    <div class="section-header">
+      <div class="section-badge">Under the hood</div>
+      <h2 class="section-title">Simple on the surface. Serious underneath.</h2>
+      <p class="section-subtitle">Three purpose-built systems that turn alerts into answers—and make every investigation faster than the last.</p>
+    </div>
+
+    <div class="foundations-layout">
+      <div class="foundations-grid">
+        <div class="foundation-card">
+          <h3 class="foundation-title">Maps your world</h3>
+          <p class="foundation-description">Services, dependencies, and ownership mapped automatically. When something breaks, Cleric knows where to look.</p>
+          <div class="foundation-visual">
+            <img src="/foundation-maps.png" alt="Network mapping diagram showing interconnected services and dependencies" class="foundation-image" />
+          </div>
+        </div>
+
+        <div class="foundation-card">
+          <h3 class="foundation-title">Tests every theory</h3>
+          <p class="foundation-description">Correlates signals, tests hypotheses in parallel, tracks confidence. Systematic elimination, not guesswork.</p>
+          <div class="foundation-visual">
+            <img src="/foundation-tests.png" alt="Theory testing diagram showing systematic analysis and hypothesis testing" class="foundation-image" />
+          </div>
+        </div>
+      </div>
+
+      <div class="foundation-card-wide">
+        <div class="wide-card-text">
+          <h3 class="foundation-title">Compounds over time</h3>
+          <p class="foundation-description">Every fix teaches Cleric something new. Patterns and context accumulate automatically.</p>
+        </div>
+        <div class="foundation-visual-wide">
+          <img src="/foundation-compounds.png" alt="Learning accumulation chart showing Cleric's growing knowledge base" class="foundation-image-wide" />
+        </div>
+      </div>
+
+      <div class="button-container">
+        <button class="explore-button">Explore Full Platform</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .foundations {
+    position: relative;
+    background: #FFFFFF;
+    width: 100vw;
+    min-height: 100vh;
+    padding: 5rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .container {
+    width: 1370px;
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 4rem;
+  }
+
+  .section-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    max-width: 920px;
+  }
+
+  .section-badge {
+    width: clamp(95px, 7.3vw, 140px);
+    height: clamp(26px, 1.67vw, 32px);
+    border-radius: 4px;
+    padding-top: clamp(8px, 0.52vw, 10px);
+    padding-right: clamp(13px, 0.83vw, 16px);
+    padding-bottom: clamp(8px, 0.52vw, 10px);
+    padding-left: clamp(13px, 0.83vw, 16px);
+    gap: clamp(3px, 0.21vw, 4px);
+    transform: rotate(0deg);
+    opacity: 1;
+    background: #E0E0E0;
+    color: #666666;
+    font-family: 'Cleric Sans Text', var(--font-family-subtitle);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  .section-title {
+    font-family: 'GT Alpina', var(--font-family-title);
+    font-weight: 500;
+    font-style: normal;
+    font-size: clamp(32px, 2.5vw, 48px);
+    line-height: 114.99999999999999%;
+    letter-spacing: -0.5%;
+    text-align: center;
+    vertical-align: bottom;
+    color: #313131;
+    margin: 0;
+  }
+
+  .section-subtitle {
+    font-family: 'Cleric Sans Text', var(--font-family-subtitle);
+    font-weight: 500;
+    font-style: normal;
+    font-size: clamp(18px, 1.25vw, 24px);
+    line-height: 125%;
+    letter-spacing: 0.75%;
+    text-align: center;
+    color: #6B6B6B;
+    margin: 0;
+  }
+
+  .foundations-layout {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(18px, 1.25vw, 24px);
+    width: 100%;
+  }
+
+  .foundations-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(18px, 1.25vw, 24px);
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .foundation-card-wide {
+    width: clamp(718px, 62.09vw, 1192px);
+    height: clamp(350px, 27.57vw, 529.32px);
+    background: #F7F9FA;
+    border-radius: 16px;
+    border: 1px solid #EAEAEA;
+    transform: rotate(0deg);
+    opacity: 1;
+    padding: clamp(32px, 2.5vw, 48px);
+    gap: clamp(18px, 1.25vw, 24px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .wide-card-text {
+    text-align: left;
+  }
+
+  .foundation-visual-wide {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 66.67%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 0 16px 16px;
+    overflow: hidden;
+  }
+
+  .foundation-image-wide {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .foundation-card {
+    width: clamp(350px, 30.42vw, 584px);
+    height: clamp(400px, 27.57vw, 529.32px);
+    background: #F7F9FA;
+    border-radius: 16px;
+    border: 1px solid #EAEAEA;
+    transform: rotate(0deg);
+    opacity: 1;
+    padding-top: clamp(32px, 2.5vw, 48px);
+    padding-right: clamp(32px, 2.5vw, 48px);
+    padding-bottom: clamp(12px, 0.83vw, 16px);
+    padding-left: clamp(32px, 2.5vw, 48px);
+    gap: clamp(18px, 1.25vw, 24px);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    box-sizing: border-box;
+  }
+
+  .foundation-title {
+    font-family: 'GT Alpina', var(--font-family-title);
+    font-weight: 500;
+    font-style: normal;
+    font-size: clamp(24px, 1.67vw, 32px);
+    line-height: 120%;
+    letter-spacing: 0%;
+    color: #313131;
+    margin: 0;
+  }
+
+  .foundation-description {
+    font-family: 'Cleric Sans Text', var(--font-family-subtitle);
+    font-weight: 500;
+    font-style: normal;
+    font-size: clamp(16px, 1vw, 18px);
+    line-height: 140%;
+    letter-spacing: 0%;
+    color: #666666;
+    margin: 0;
+  }
+
+  .foundation-visual {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .foundation-image {
+    width: 100%;
+    height: auto;
+    max-width: 500px;
+    object-fit: contain;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: clamp(24px, 2vw, 32px);
+  }
+
+  .explore-button {
+    width: clamp(150px, 10.31vw, 198px);
+    height: clamp(35px, 2.14vw, 41px);
+    background: #000000;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 150px;
+    padding-top: clamp(8px, 0.52vw, 10px);
+    padding-right: clamp(18px, 1.25vw, 24px);
+    padding-bottom: clamp(8px, 0.52vw, 10px);
+    padding-left: clamp(18px, 1.25vw, 24px);
+    gap: clamp(6px, 0.42vw, 8px);
+    font-family: 'Cleric Sans Text', var(--font-family-subtitle);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.4;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  .explore-button:hover {
+    background: #333333;
+  }
+
+  /* Mobile Styles */
+  @media (max-width: 1023px) {
+    .foundations-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .foundation-card {
+      align-items: center;
+      text-align: center;
+    }
+
+    .foundation-card-wide {
+      width: 90vw;
+      max-width: 500px;
+    }
+
+    .wide-card-text {
+      text-align: center;
+    }
+  }
+</style>

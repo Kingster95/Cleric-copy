@@ -1,0 +1,254 @@
+---
+// Header navigation component
+export interface Props {
+  className?: string;
+}
+
+const { className = '' } = Astro.props;
+
+const navItems = [
+  { label: 'Product', href: '#' },
+  {
+    label: 'Solutions',
+    href: '#',
+    hasDropdown: true
+  },
+  {
+    label: 'Resources',
+    href: '#',
+    hasDropdown: true
+  },
+  { label: 'About', href: '#' },
+  { label: 'Careers', href: '#' },
+];
+---
+
+<header class={`header ${className}`}>
+  <div class="container">
+    <div class="nav-wrapper">
+      <!-- Logo -->
+      <div class="logo">
+        <a href="/" aria-label="Cleric Homepage">
+          Cleric
+        </a>
+      </div>
+
+      <!-- Navigation and CTA grouped together -->
+      <div class="nav-and-cta">
+        <!-- Navigation Menu -->
+        <nav class="nav" role="navigation" aria-label="Main navigation">
+          <ul class="nav-list">
+            {navItems.map((item) => (
+              <li class="nav-item">
+                <a href={item.href} class="nav-link">
+                  {item.label}
+                  {item.hasDropdown && (
+                    <svg class="dropdown-icon" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  )}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <!-- CTA Button -->
+        <div class="cta">
+          <a href="/try-it-out" class="cta-btn">
+            Request Demo
+          </a>
+        </div>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button class="mobile-menu-btn" aria-label="Toggle mobile menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: relative;
+    z-index: var(--z-header);
+    padding: var(--space-lg) 0;
+    flex-shrink: 0;
+  }
+
+  .container {
+    max-width: var(--header-width);
+    width: var(--header-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+  }
+
+  .nav-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-and-cta {
+    display: none;
+    align-items: center;
+    gap: var(--space-2xl);
+  }
+
+  /* Logo */
+  .logo a {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-nav-text);
+    text-decoration: none;
+    transition: opacity var(--transition-fast);
+  }
+
+  .logo a:hover {
+    opacity: 0.8;
+  }
+
+  /* Navigation */
+  .nav {
+    display: none;
+  }
+
+  .nav-list {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xl);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    color: var(--color-nav-text);
+    text-decoration: none;
+    font-size: var(--font-size-nav);
+    font-weight: 500;
+    transition: color var(--transition-fast);
+  }
+
+  .nav-link:hover {
+    color: var(--color-nav-text-hover);
+  }
+
+  .dropdown-icon {
+    width: 12px;
+    height: 8px;
+    opacity: 0.7;
+    transition: transform var(--transition-fast);
+  }
+
+  .nav-link:hover .dropdown-icon {
+    transform: translateY(1px);
+  }
+
+  /* CTA Button */
+  .cta {
+    display: none;
+  }
+
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 138px;
+    height: 33px;
+    min-width: 138px;
+    padding: 6px 16px;
+    gap: 8px;
+    background: #FFFFFF33;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: var(--font-size-btn);
+    font-weight: 500;
+    border-radius: var(--radius-header-btn);
+    transition: all var(--transition-fast);
+    box-shadow: var(--shadow-btn);
+    backdrop-filter: blur(4px);
+    opacity: 1;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .cta-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.15);
+  }
+
+  /* Mobile Menu Button */
+  .mobile-menu-btn {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--space-sm);
+  }
+
+  .hamburger-line {
+    width: 20px;
+    height: 2px;
+    background-color: var(--color-nav-text);
+    transition: all var(--transition-fast);
+  }
+
+  /* Desktop Styles */
+  @media (min-width: 768px) {
+    .nav {
+      display: block;
+    }
+
+    .cta {
+      display: block;
+    }
+
+    .nav-and-cta {
+      display: flex;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+    }
+  }
+
+  /* Responsive Button Styles */
+  @media (max-width: 767px) {
+    .cta-btn {
+      width: auto;
+      min-width: 120px;
+      height: auto;
+      padding: 8px 14px;
+      font-size: 0.85rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .cta-btn {
+      width: auto;
+      min-width: 100px;
+      padding: 6px 12px;
+      font-size: 0.8rem;
+    }
+  }
+
+  /* Large Desktop Styles */
+  @media (min-width: 1024px) {
+    .header {
+      padding: var(--space-xl) 0;
+    }
+
+    .nav-list {
+      gap: var(--space-2xl);
+    }
+  }
+</style>

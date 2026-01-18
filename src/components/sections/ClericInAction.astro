@@ -1,0 +1,154 @@
+---
+// Cleric in Action section component
+import FeatureCard from '../ui/FeatureCard.astro';
+
+export interface Props {
+  className?: string;
+}
+
+const { className = '' } = Astro.props;
+
+// Feature data
+const features = [
+  {
+    title: "Skip straight to the answer",
+    description: "Cleric automatically investigates alerts and delivers root cause analysis so you know exactly what's wrong and whether to act.",
+    image: "/inaction-1.png",
+    imageAlt: "Cleric Investigation Interface"
+  },
+  {
+    title: "Trust but verify",
+    description: "See exactly how Cleric reached its conclusions so you can trust the diagnosis and move to resolution.",
+    image: "/inaction-2.png",
+    imageAlt: "Cleric Alert Analysis Dashboard"
+  },
+  {
+    title: "Ship a fix",
+    subtitle: "Works inside your",
+    subtitleLogo: "/slack logo.png",
+    description: "Work with Cleric to ship fixes by asking questions, giving instructions, and collaborating until the issue is resolved.",
+    image: "/inaction-3.png",
+    imageAlt: "Cleric Team Collaboration Interface"
+  },
+  {
+    title: "Learns from failure",
+    description: "Engineers leave, context doesn't. Every resolution becomes institutional knowledge your whole team can use.",
+    image: "/inaction-4.png",
+    imageAlt: "Cleric Automation Workflows"
+  }
+];
+---
+
+<section class={`cleric-in-action ${className}`}>
+  <div class="container">
+    <div class="section-header">
+      <div class="section-badge">Cleric in action</div>
+      <h2 class="section-title">Things break. Cleric investigates.</h2>
+      <p class="section-subtitle">While you're still reading the alert, Cleric's already three steps into the investigation.</p>
+    </div>
+
+    <div class="content-layout">
+      {features.map((feature, index) => (
+        <FeatureCard
+          title={feature.title}
+          description={feature.description}
+          image={feature.image}
+          imageAlt={feature.imageAlt}
+          reversed={index % 2 === 1}
+          subtitle={feature.subtitle}
+          subtitleLogo={feature.subtitleLogo}
+        />
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .cleric-in-action {
+    position: relative;
+    background: #FFFFFF;
+    width: 100vw;
+    min-height: 100vh;
+    padding: 5rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .container {
+    width: 1370px;
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 4rem;
+  }
+
+  .section-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    max-width: 920px;
+  }
+
+  .section-badge {
+    width: clamp(95px, 7.3vw, 140px);
+    height: clamp(26px, 1.67vw, 32px);
+    border-radius: 4px;
+    padding-top: clamp(8px, 0.52vw, 10px);
+    padding-right: clamp(13px, 0.83vw, 16px);
+    padding-bottom: clamp(8px, 0.52vw, 10px);
+    padding-left: clamp(13px, 0.83vw, 16px);
+    gap: clamp(3px, 0.21vw, 4px);
+    transform: rotate(0deg);
+    opacity: 1;
+    background: #E0E0E0;
+    color: #666666;
+    font-family: 'Cleric Sans Text', var(--font-family-subtitle);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  .section-title {
+    font-family: 'GT Alpina', var(--font-family-title);
+    font-weight: 500;
+    font-style: normal;
+    font-size: clamp(32px, 2.5vw, 48px);
+    line-height: 114.99999999999999%;
+    letter-spacing: -0.5%;
+    text-align: center;
+    vertical-align: bottom;
+    color: #313131;
+    margin: 0;
+  }
+
+  .section-subtitle {
+    font-family: 'Cleric Sans Text', var(--font-family-subtitle);
+    font-weight: 400;
+    font-style: normal;
+    font-size: clamp(18px, 1.25vw, 24px);
+    line-height: 125%;
+    letter-spacing: 0.75%;
+    text-align: center;
+    color: #6B6B6B;
+    margin: 0;
+  }
+
+  .content-layout {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    align-items: center;
+  }
+
+
+</style>

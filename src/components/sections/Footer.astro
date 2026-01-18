@@ -1,0 +1,237 @@
+---
+// Footer section component
+export interface Props {
+  className?: string;
+}
+
+const { className = '' } = Astro.props;
+---
+
+<footer class={`footer ${className}`}>
+  <div class="container">
+    <div class="footer-content">
+      <!-- Left Icon Section -->
+      <div class="footer-logo">
+        <div class="logo-icon">
+          <img src="/footer-icon.png" alt="Cleric logo" class="footer-logo-img" />
+        </div>
+      </div>
+
+      <!-- Footer Links Columns -->
+      <div class="footer-links">
+        <!-- Cleric Column -->
+        <div class="footer-column">
+          <h3 class="footer-heading">Cleric</h3>
+          <ul class="footer-list">
+            <li><a href="#" class="footer-link">About</a></li>
+            <li><a href="#" class="footer-link">Careers</a></li>
+            <li><a href="#" class="footer-link">Product</a></li>
+            <li><a href="#" class="footer-link">Blog</a></li>
+            <li><a href="#" class="footer-link">Webinars</a></li>
+          </ul>
+        </div>
+
+        <!-- Help & Security Column -->
+        <div class="footer-column">
+          <h3 class="footer-heading">Help & Security</h3>
+          <ul class="footer-list">
+            <li><a href="#" class="footer-link">Trust Center</a></li>
+            <li><a href="#" class="footer-link">Terms of Use</a></li>
+            <li><a href="#" class="footer-link">Privacy Policy</a></li>
+          </ul>
+        </div>
+
+        <!-- Use Cases Column -->
+        <div class="footer-column">
+          <h3 class="footer-heading">Use Cases</h3>
+          <ul class="footer-list">
+            <li><a href="#" class="footer-link">Alert Investigation</a></li>
+            <li><a href="#" class="footer-link">Root Cause Analysis</a></li>
+            <li><a href="#" class="footer-link">Fix Recommendation</a></li>
+            <li><a href="#" class="footer-link">On-Call Automation</a></li>
+            <li><a href="#" class="footer-link">Incident Triage</a></li>
+            <li><a href="#" class="footer-link">Deployment Failures</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Section -->
+    <div class="footer-bottom">
+      <div class="social-links">
+        <a href="#" class="social-link" aria-label="LinkedIn">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18.5195 0H1.47656C0.660156 0 0 0.644531 0 1.44141V18.5547C0 19.3516 0.660156 20 1.47656 20H18.5195C19.3359 20 20 19.3516 20 18.5586V1.44141C20 0.644531 19.3359 0 18.5195 0ZM5.93359 17.043H2.96484V7.49609H5.93359V17.043ZM4.44922 6.19531C3.49609 6.19531 2.72656 5.42578 2.72656 4.47656C2.72656 3.52734 3.49609 2.75781 4.44922 2.75781C5.39844 2.75781 6.16797 3.52734 6.16797 4.47656C6.16797 5.42188 5.39844 6.19531 4.44922 6.19531ZM17.043 17.043H14.0781V12.4023C14.0781 11.2969 14.0586 9.87109 12.5352 9.87109C10.9922 9.87109 10.7578 11.0781 10.7578 12.3203V17.043H7.79297V7.49609H10.6406V8.80078H10.6797C11.0742 8.05078 12.043 7.25781 13.4844 7.25781C16.4883 7.25781 17.043 9.23438 17.043 11.8047V17.043Z" fill="currentColor"/>
+          </svg>
+        </a>
+        <a href="#" class="social-link" aria-label="Twitter">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11.9026 8.46699L19.3482 0H17.5838L11.1193 7.35332L6.09574 0H0L7.80761 11.1193L0 20H1.76438L8.59013 12.2348L13.9043 20H20L11.9022 8.46699H11.9026ZM9.48589 11.2173L8.69516 10.1101L2.39957 1.29961H5.23316L10.1864 8.40918L10.9771 9.51641L17.5847 18.7594H14.7511L9.48589 11.2177V11.2173Z" fill="currentColor"/>
+          </svg>
+        </a>
+      </div>
+
+      <div class="copyright">
+        <span>© Cleric 2025</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: #FFFFFF;
+    padding: clamp(60px, 5vw, 80px) 0 clamp(40px, 3vw, 60px);
+    border-top: 1px solid #E5E7EB;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 clamp(20px, 4vw, 40px);
+  }
+
+  .footer-content {
+    display: flex;
+    gap: clamp(60px, 8vw, 120px);
+    margin-bottom: clamp(40px, 4vw, 60px);
+  }
+
+  .footer-logo {
+    flex-shrink: 0;
+  }
+
+  .logo-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .footer-logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .footer-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(40px, 6vw, 80px);
+    flex: 1;
+  }
+
+  .footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(16px, 1.5vw, 24px);
+  }
+
+  .footer-heading {
+    font-family: 'Cleric Sans Text', var(--font-family-subtitle);
+    font-weight: 700;
+    font-style: normal;
+    font-size: 15px;
+    line-height: 140%;
+    letter-spacing: 0%;
+    color: #000000;
+    margin: 0;
+  }
+
+  .footer-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(8px, 0.8vw, 12px);
+  }
+
+  .footer-link {
+    font-family: 'Cleric Sans Text', var(--font-family-subtitle);
+    font-weight: 500;
+    font-style: normal;
+    font-size: 15px;
+    line-height: 140%;
+    letter-spacing: 0%;
+    color: #000000;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .footer-link:hover {
+    color: #313131;
+  }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: clamp(32px, 4vw, 48px);
+    padding-top: clamp(20px, 2vw, 30px);
+  }
+
+  .social-links {
+    display: flex;
+    gap: clamp(12px, 1.5vw, 20px);
+  }
+
+  .social-link {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666666;
+    background: #F9FAFB;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    text-decoration: none;
+  }
+
+  .social-link:hover {
+    color: #313131;
+    background: #E5E7EB;
+  }
+
+  .copyright {
+    font-family: 'Cleric Sans Text', var(--font-family-subtitle);
+    font-weight: 400;
+    font-style: normal;
+    font-size: 15px;
+    line-height: 140%;
+    letter-spacing: 0%;
+    vertical-align: bottom;
+    color: #666666;
+  }
+
+  /* Mobile Styles */
+  @media (max-width: 768px) {
+    .footer-content {
+      flex-direction: column;
+      gap: clamp(30px, 5vw, 40px);
+    }
+
+    .footer-links {
+      grid-template-columns: 1fr;
+      gap: clamp(30px, 4vw, 40px);
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      gap: clamp(16px, 3vw, 20px);
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 1024px) and (min-width: 769px) {
+    .footer-links {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-column:last-child {
+      grid-column: 1 / -1;
+    }
+  }
+</style>
