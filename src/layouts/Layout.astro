@@ -19,6 +19,10 @@ const {
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={description} />
 
+		<!-- Prevent search engine indexing -->
+		<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+		<meta name="googlebot" content="noindex, nofollow" />
+
 		<!-- Open Graph / Facebook -->
 		<meta property="og:type" content="website" />
 		<meta property="og:title" content={title} />
