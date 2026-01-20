@@ -1,4 +1,6 @@
 ---
+import '../styles/fonts.css';
+
 export interface Props {
 	title?: string;
 	description?: string;
@@ -33,16 +35,11 @@ const {
 		<meta property="twitter:title" content={title} />
 		<meta property="twitter:description" content={description} />
 
-		<!-- Fonts -->
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-
-		<!-- GT Alpina Font (using similar serif font as fallback) -->
-		<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-
-		<!-- Cleric Sans Text Font (using similar sans-serif font as fallback) -->
-		<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+		<!-- Local Font Preloads for Performance -->
+		<link rel="preload" href="/fonts/GT Alpina/GT-Alpina-Standard-Regular.woff2" as="font" type="font/woff2" crossorigin />
+		<link rel="preload" href="/fonts/Cleric Sans woff2/Cleric-Sans-Text-400.woff2" as="font" type="font/woff2" crossorigin />
+		<link rel="preload" href="/fonts/Cleric Sans woff2/Cleric-Sans-Text-500.woff2" as="font" type="font/woff2" crossorigin />
+		<link rel="preload" href="/fonts/Cleric Sans woff2/Cleric-Sans-Text-600.woff2" as="font" type="font/woff2" crossorigin />
 
 		<title>{title}</title>
 	</head>
@@ -74,16 +71,16 @@ const {
 		--color-btn-primary-text: #4361EE;
 		--color-btn-secondary: transparent;
 		--color-btn-secondary-text: #ffffff;
-		--color-btn-secondary-border: rgba(255, 255, 255, 0.3);
+		--color-btn-secondary-border: #FFFFFF;
 
 		/* Interface Mockup Colors */
 		--color-mockup-bg: #ffffff;
 		--color-mockup-border: rgba(255, 255, 255, 0.2);
 
 		/* Typography */
-		--font-family-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-		--font-family-title: 'GT Alpina', 'Playfair Display', Georgia, serif;
-		--font-family-subtitle: 'Cleric Sans Text', 'Source Sans 3', 'Inter', sans-serif;
+		--font-family-primary: 'Cleric Sans Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+		--font-family-title: 'GT Alpina', Georgia, serif;
+		--font-family-subtitle: 'Cleric Sans Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
 		/* Font Sizes */
 		--font-size-hero-title: clamp(48px, 6vw, 72px);
@@ -119,7 +116,7 @@ const {
 		/* Container */
 		--container-max-width: 1200px;
 		--container-padding: var(--space-lg);
-		--header-width: 85%; /* Header at 85% width */
+		--header-width: 87%; /* Header at 85% width */
 
 		/* Main Container - Relative/Percentage Based */
 		--main-container-width: 100vw;
@@ -157,6 +154,23 @@ const {
 		overflow-x: hidden;
 		max-width: 100vw;
 		font-family: var(--font-family-primary);
+		/* Enable scrolling but hide scrollbar */
+		overflow-y: auto;
+		scrollbar-width: none; /* Firefox */
+		-ms-overflow-style: none; /* Internet Explorer 10+ */
+	}
+
+	/* Hide scrollbar for webkit browsers (Chrome, Safari, Edge) */
+	html::-webkit-scrollbar,
+	body::-webkit-scrollbar,
+	*::-webkit-scrollbar {
+		display: none;
+	}
+
+	/* Global scrollbar hiding for all elements */
+	* {
+		scrollbar-width: none; /* Firefox */
+		-ms-overflow-style: none; /* Internet Explorer 10+ */
 	}
 
 	body {
@@ -202,6 +216,21 @@ const {
 		scroll-behavior: smooth;
 	}
 
+	/* Ensure scrollable areas maintain hidden scrollbars */
+	.form-section,
+	.assessment-section,
+	.scrollable {
+		overflow-y: auto;
+		scrollbar-width: none;
+		-ms-overflow-style: none;
+	}
+
+	.form-section::-webkit-scrollbar,
+	.assessment-section::-webkit-scrollbar,
+	.scrollable::-webkit-scrollbar {
+		display: none;
+	}
+
 	/* Remove default button styles */
 	button {
 		background: none;
@@ -219,5 +248,174 @@ const {
 	ul,
 	ol {
 		list-style: none;
+	}
+
+	/* Global Typography System - Desktop */
+
+	/* H1 Typography - GT Alpina */
+	h1 {
+		font-family: 'GT Alpina', serif;
+		font-weight: 400;
+		font-style: normal;
+		font-size: 72px;
+		line-height: 114.99999999999999%;
+		letter-spacing: -0.025em;
+		text-align: center;
+		text-transform: capitalize;
+	}
+
+	/* H2 Typography - GT Alpina */
+	h2 {
+		font-family: 'GT Alpina', serif;
+		font-weight: 400;
+		font-style: normal;
+		font-size: 48px;
+		line-height: 114.99999999999999%;
+		letter-spacing: -0.005em;
+	}
+
+	/* H3 Typography - GT Alpina */
+	h3 {
+		font-family: 'GT Alpina', serif;
+		font-weight: 400;
+		font-style: normal;
+		font-size: 40px;
+		line-height: 120%;
+		letter-spacing: 0;
+	}
+
+	/* H4 Typography - GT Alpina */
+	h4 {
+		font-family: 'GT Alpina', serif;
+		font-weight: 400;
+		font-style: normal;
+		font-size: 32px;
+		line-height: 120%;
+		letter-spacing: 0;
+	}
+
+	/* Subtitle Typography Classes - Cleric Sans Text */
+	.subtitle-regular {
+		font-family: 'Cleric Sans Text', sans-serif;
+		font-weight: 400;
+		font-style: normal;
+		font-size: 24px;
+		line-height: 125%;
+		letter-spacing: 0.0075em;
+	}
+
+	.subtitle-medium {
+		font-family: 'Cleric Sans Text', sans-serif;
+		font-weight: 500;
+		font-style: normal;
+		font-size: 24px;
+		line-height: 125%;
+		letter-spacing: 0.0075em;
+	}
+
+	.subtitle-semibold {
+		font-family: 'Cleric Sans Text', sans-serif;
+		font-weight: 600;
+		font-style: normal;
+		font-size: 24px;
+		line-height: 125%;
+		letter-spacing: 0.0075em;
+	}
+
+	/* Text Typography Classes - Cleric Sans Text */
+	.text-medium-regular {
+		font-family: 'Cleric Sans Text', sans-serif;
+		font-weight: 400;
+		font-style: normal;
+		font-size: 15px;
+		line-height: 140%;
+		letter-spacing: 0;
+		text-align: center;
+		vertical-align: middle;
+	}
+
+	/* Responsive Typography for tablets and mobile */
+	@media (max-width: 991px) {
+		h1 {
+			font-family: 'GT Alpina', serif;
+			font-weight: 400;
+			font-style: normal;
+			font-size: 56px;
+			line-height: 114.99999999999999%;
+			letter-spacing: -0.025em;
+			text-align: center;
+			text-transform: capitalize;
+		}
+
+		h2 {
+			font-size: clamp(32px, 6vw, 42px);
+		}
+
+		h3 {
+			font-size: clamp(28px, 5vw, 36px);
+		}
+
+		h4 {
+			font-size: clamp(24px, 4vw, 28px);
+		}
+
+		.subtitle-regular,
+		.subtitle-medium,
+		.subtitle-semibold {
+			font-family: 'Cleric Sans Text', sans-serif;
+			font-weight: 400;
+			font-style: normal;
+			font-size: 20px;
+			line-height: 125%;
+			letter-spacing: 0.0075em;
+			text-align: center;
+		}
+
+		.text-medium-regular {
+			font-size: clamp(13px, 2.5vw, 14px);
+		}
+	}
+
+	@media (max-width: 767px) {
+		h1 {
+			font-family: 'GT Alpina', serif;
+			font-weight: 400;
+			font-style: normal;
+			font-size: 40px;
+			line-height: 114.99999999999999%;
+			letter-spacing: -0.015em;
+			text-align: center;
+			text-transform: capitalize;
+		}
+
+		h2 {
+			font-size: clamp(24px, 5vw, 32px);
+		}
+
+		h3 {
+			font-size: clamp(20px, 4vw, 26px);
+		}
+
+		h4 {
+			font-size: clamp(18px, 3.5vw, 22px);
+		}
+
+		.subtitle-regular,
+		.subtitle-medium,
+		.subtitle-semibold {
+			font-family: 'Cleric Sans Text', sans-serif;
+			font-weight: 400;
+			font-style: normal;
+			font-size: 18px;
+			line-height: 120%;
+			letter-spacing: -0.03em;
+			text-align: center;
+			margin: 0 auto;
+			max-width: 100%;
+		}
+
+		.text-medium-regular {
+			font-size: clamp(12px, 2vw, 13px);
+		}
 	}
 </style>

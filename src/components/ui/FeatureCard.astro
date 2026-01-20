@@ -36,8 +36,8 @@ const { title, description, image, imageAlt, reversed = false, subtitle, subtitl
 
 <style>
   .feature-card {
-    width: clamp(320px, 62.08vw, 1192px);
-    height: clamp(400px, 33.33vw, 640px);
+    width: 1192px;
+    height: 640px;
     background: linear-gradient(90deg, #F7F9FA 0.05%, #F8F8F8 99.95%);
     border-radius: 16px;
     border: 1px solid #E5E7EB;
@@ -48,6 +48,7 @@ const { title, description, image, imageAlt, reversed = false, subtitle, subtitl
     align-items: center;
     box-sizing: border-box;
     margin-bottom: 48px;
+    position: relative;
   }
 
   .feature-card.reversed {
@@ -81,10 +82,10 @@ const { title, description, image, imageAlt, reversed = false, subtitle, subtitl
   }
 
   .feature-title {
-    font-family: 'GT Alpina', var(--font-family-title);
-    font-weight: 500;
+    font-family: 'GT Alpina';
+    font-weight: 400;
     font-style: normal;
-    font-size: clamp(28px, 2.08vw, 40px);
+    font-size: 40px;
     line-height: 120%;
     letter-spacing: 0%;
     color: #313131;
@@ -99,13 +100,16 @@ const { title, description, image, imageAlt, reversed = false, subtitle, subtitl
   }
 
   .subtitle-text {
-    font-family: 'Cleric Sans Text', var(--font-family-subtitle);
-    font-weight: 500;
+    font-family: 'Cleric Sans Text';
+    font-weight: 400;
     font-style: normal;
-    font-size: clamp(16px, 0.94vw, 18px);
+    font-size: 18px;
     line-height: 140%;
     letter-spacing: 0%;
-    color: #666666;
+    color: rgba(107, 107, 107, 1);
+    max-width: 200px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 
   .subtitle-logo {
@@ -116,11 +120,10 @@ const { title, description, image, imageAlt, reversed = false, subtitle, subtitl
 
   .feature-description {
     font-family: 'Cleric Sans Text', var(--font-family-subtitle);
-    font-weight: 500;
     font-style: normal;
     font-size: clamp(16px, 0.94vw, 18px);
     line-height: 140%;
-    letter-spacing: 0%;
+    letter-spacing: 0;
     color: #666666;
     margin: 0;
   }
@@ -153,6 +156,26 @@ const { title, description, image, imageAlt, reversed = false, subtitle, subtitl
     position: relative;
   }
 
+  .feature-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    right: 0;
+    bottom: 0;
+    border-radius: 0 16px 16px 0;
+    background: linear-gradient(180deg, rgba(248, 248, 248, 0) 0%, rgba(248, 248, 248, 0.7) 100%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .feature-card.reversed::after {
+    left: 0;
+    right: 50%;
+    border-radius: 16px 0 0 16px;
+    background: linear-gradient(180deg, rgba(248, 248, 248, 0) 0%, rgba(248, 248, 248, 0.7) 100%);
+  }
+
   .feature-panel::after {
     content: '';
     position: absolute;
@@ -165,9 +188,6 @@ const { title, description, image, imageAlt, reversed = false, subtitle, subtitl
     z-index: 1;
   }
 
-  .feature-card.reversed .feature-panel::after {
-  }
-
   .feature-image {
     width: 100%;
     height: 100%;
@@ -175,11 +195,14 @@ const { title, description, image, imageAlt, reversed = false, subtitle, subtitl
     border-radius: 16px;
   }
 
-  /* Mobile Styles */
-  @media (max-width: 1023px) {
+  /* Tablet Styles */
+  @media (max-width: 991px) and (min-width: 768px) {
     .feature-card,
     .feature-card.reversed {
+      width: 642px;
+      height: 768px;
       grid-template-columns: 1fr;
+      grid-template-rows: auto 1fr;
       gap: 2rem;
       direction: ltr;
     }
@@ -187,16 +210,76 @@ const { title, description, image, imageAlt, reversed = false, subtitle, subtitl
     .text-content,
     .feature-card.reversed .text-content {
       width: 100%;
-      max-width: 600px;
-      margin: 0 auto;
-      text-align: center;
-      align-items: center;
+      max-width: 100%;
+      margin: 0 32px;
+      text-align: left;
+      align-items: flex-start;
+      order: 1;
+    }
+
+    .feature-title {
+      margin-top: 32px;
     }
 
     .image-content {
       width: 100%;
-      max-width: 600px;
-      margin: 0 auto;
+      max-width: 100%;
+      margin: 0;
+      order: 2;
+    }
+
+    .feature-image {
+      width: 578px;
+      height: 578px;
+    }
+
+    /* Third card with subtitle - move image up */
+    .feature-card:nth-child(3) .feature-image {
+      transform: translateY(-20%);
+    }
+  }
+
+  /* Mobile Styles */
+  @media (max-width: 767px) {
+    .feature-card,
+    .feature-card.reversed {
+      width: 408px;
+      height: 540px;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto 1fr;
+      gap: 1.5rem;
+      direction: ltr;
+    }
+
+    .text-content,
+    .feature-card.reversed .text-content {
+      width: 100%;
+      max-width: 100%;
+      margin: 0 24px;
+      text-align: left;
+      align-items: flex-start;
+      order: 1;
+    }
+
+    .feature-title {
+      margin-top: 32px;
+    }
+
+    .image-content {
+      width: 100%;
+      max-width: 100%;
+      margin: 0;
+      order: 2;
+    }
+
+    .feature-image {
+      width: 360px;
+      height: 360px;
+    }
+
+    /* Third card with subtitle - move image up */
+    .feature-card:nth-child(3) .feature-image {
+      transform: translateY(-20%);
     }
   }
 </style>

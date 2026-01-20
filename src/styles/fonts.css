@@ -1,0 +1,116 @@
+/* Local Font Declarations */
+
+/* GT Alpina Font Family */
+@font-face {
+  font-family: 'GT Alpina';
+  src: url('/fonts/GT Alpina/GT-Alpina-Standard-Light.woff2') format('woff2'),
+       url('/fonts/GT Alpina/GT-Alpina-Standard-Light.woff') format('woff'),
+       url('/fonts/GT Alpina/GT-Alpina-Standard-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'GT Alpina';
+  src: url('/fonts/GT Alpina/GT-Alpina-Standard-Regular.woff2') format('woff2'),
+       url('/fonts/GT Alpina/GT-Alpina-Standard-Regular.woff') format('woff'),
+       url('/fonts/GT Alpina/GT-Alpina-Standard-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'GT Alpina';
+  src: url('/fonts/GT Alpina/GT-Alpina-Standard-Medium.woff2') format('woff2'),
+       url('/fonts/GT Alpina/GT-Alpina-Standard-Medium.woff') format('woff'),
+       url('/fonts/GT Alpina/GT-Alpina-Standard-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Cleric Sans Text Font Family */
+@font-face {
+  font-family: 'Cleric Sans Text';
+  src: url('/fonts/Cleric Sans woff2/Cleric-Sans-Text-300.woff2') format('woff2'),
+       url('/fonts/Cleric Sans ttf/Cleric-Sans-Text-300.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cleric Sans Text';
+  src: url('/fonts/Cleric Sans woff2/Cleric-Sans-Text-300Italic.woff2') format('woff2'),
+       url('/fonts/Cleric Sans ttf/Cleric-Sans-Text-300Italic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cleric Sans Text';
+  src: url('/fonts/Cleric Sans woff2/Cleric-Sans-Text-400.woff2') format('woff2'),
+       url('/fonts/Cleric Sans ttf/Cleric-Sans-Text-400.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cleric Sans Text';
+  src: url('/fonts/Cleric Sans woff2/Cleric-Sans-Text-400Italic.woff2') format('woff2'),
+       url('/fonts/Cleric Sans ttf/Cleric-Sans-Text-400Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cleric Sans Text';
+  src: url('/fonts/Cleric Sans woff2/Cleric-Sans-Text-500.woff2') format('woff2'),
+       url('/fonts/Cleric Sans ttf/Cleric-Sans-Text-500.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cleric Sans Text';
+  src: url('/fonts/Cleric Sans woff2/Cleric-Sans-Text-500Italic.woff2') format('woff2'),
+       url('/fonts/Cleric Sans ttf/Cleric-Sans-Text-500Italic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cleric Sans Text';
+  src: url('/fonts/Cleric Sans woff2/Cleric-Sans-Text-600.woff2') format('woff2'),
+       url('/fonts/Cleric Sans ttf/Cleric-Sans-Text-600.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cleric Sans Text';
+  src: url('/fonts/Cleric Sans woff2/Cleric-Sans-Text-600Italic.woff2') format('woff2'),
+       url('/fonts/Cleric Sans ttf/Cleric-Sans-Text-600Italic.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* GT America Mono Font Family */
+@font-face {
+  font-family: 'GT America Mono';
+  src: url('/fonts/GT America/GT-America-Mono-Regular.woff2') format('woff2'),
+       url('/fonts/GT America/GT-America-Mono-Regular.woff') format('woff'),
+       url('/fonts/GT America/GT-America-Mono-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}

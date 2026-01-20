@@ -1,5 +1,7 @@
 ---
 // Hero section component
+import GradientOverlay from './GradientOverlay.astro';
+
 export interface Props {
   className?: string;
 }
@@ -15,23 +17,37 @@ const { className = '' } = Astro.props;
     <div class="hero-content">
       <!-- Press Release Badge -->
       <div class="press-badge">
-        <span class="badge-label">Press release</span>
-        <span class="badge-text">Cleric launches the first self-learning AI SRE</span>
-        <svg class="badge-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+        <span class="badge-label text-medium-regular">Press release</span>
+        <span class="badge-text text-medium-regular">Cleric launches the first self-learning AI SRE</span>
+        <img src="/arrow-up-right.png" alt="Arrow" class="badge-arrow" />
       </div>
 
       <!-- Main Heading -->
-      <h1 class="hero-title">
+      <h1 class="hero-title desktop-title">
         The AI SRE That Learns<br>
         From Your Engineers
       </h1>
 
+      <h1 class="hero-title mobile-title">
+        The AI SRE That <br>
+        Learns  From Your <br>
+        Engineers
+      </h1>
+
       <!-- Subtitle -->
-      <p class="hero-subtitle">
+      <p class="hero-subtitle subtitle-regular desktop-subtitle">
         Cleric investigates production issues, captures what works,<br>
         and makes your whole team faster.
+      </p>
+
+      <p class="hero-subtitle subtitle-regular tablet-subtitle">
+        Cleric investigates production issues, captures what works, and makes<br>
+        your whole team faster.
+      </p>
+
+      <p class="hero-subtitle subtitle-regular mobile-subtitle">
+        Cleric investigates production issues, captures<br>
+        what works, and makes your whole team faster.
       </p>
 
       <!-- CTA Buttons -->
@@ -48,9 +64,13 @@ const { className = '' } = Astro.props;
     <!-- Product Interface Image -->
     <div class="hero-mockup">
       <img src="/hero_desktop.png" alt="Cleric AI SRE Platform Interface" class="hero-image" />
-      <img src="/hero_phone.png" alt="Cleric Mobile Interface" class="hero-phone" />
+      <img src="/hero_phone.png" alt="Cleric Mobile Interface" class="hero-phone desktop-phone" />
+      <img src="/hero_slack_mobile.png" alt="Cleric Mobile Interface" class="mobile-phone" />
     </div>
   </div>
+
+  <!-- Gradient Overlay -->
+  <GradientOverlay />
 </section>
 
 <style>
@@ -59,21 +79,8 @@ const { className = '' } = Astro.props;
     flex: 1;
     display: flex;
     align-items: flex-start;
-    overflow: hidden;
     min-height: calc(100vh - 200px);
-    padding-top: 8vh;
-  }
-
-  .hero::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 100px;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 77.88%);
-    pointer-events: none;
-    z-index: 10;
+    padding-top: 4vh;
   }
 
   .hero-background {
@@ -109,7 +116,8 @@ const { className = '' } = Astro.props;
     border: 1px solid #0000001A;
     border-radius: var(--radius-press-badge);
     padding: 12px;
-    margin-bottom: var(--space-xl);
+    margin-bottom: 48px;
+    border-width: 1px;
     font-size: 0.875rem;
     color: var(--color-hero-text);
     transition: all var(--transition-normal);
@@ -132,58 +140,80 @@ const { className = '' } = Astro.props;
     align-items: center;
     justify-content: center;
     background: #E1DEFE;
-    color: #313131;
+    color: rgba(49, 49, 49, 1);
     padding: 4px 12px;
     gap: 8px;
     border-radius: 4px;
-    font-family: var(--font-family-subtitle);
-    font-size: 14px;
-    font-weight: 500;
-    font-style: normal;
-    line-height: 120%;
-    letter-spacing: -0.25%;
-    text-align: center;
     opacity: 0.8;
     white-space: nowrap;
     overflow: hidden;
-  }
-
-  .badge-text {
-    font-weight: 500;
+    font-family: 'Cleric Sans Text', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 120%;
+    letter-spacing: -0.0025em;
+    text-align: center;
+    vertical-align: middle;
   }
 
   .badge-arrow {
     width: 16px;
     height: 16px;
     opacity: 0.8;
+    object-fit: contain;
+  }
+
+  .badge-text {
+    color: #ffffffb3;
   }
 
   /* Hero Title */
   .hero-title {
-    font-family: var(--font-family-title);
-    font-size: var(--font-size-hero-title);
-    font-weight: 400;
     color: var(--color-hero-text);
-    line-height: 115%;
     margin: 0 0 var(--space-lg);
-    letter-spacing: -2.5%;
+  }
+
+  .mobile-title {
+    display: none;
+  }
+
+  .desktop-title {
+    display: block;
   }
 
   /* Hero Subtitle */
   .hero-subtitle {
-    font-family: var(--font-family-subtitle);
-    font-size: var(--font-size-hero-subtitle);
-    font-weight: 400;
     color: var(--color-hero-text-secondary);
-    line-height: 125%;
-    margin: 0 0 var(--space-2xl);
-    letter-spacing: 0.75%;
+    margin: 5% 0 var(--space-xl);
+  }
+
+  /* Default: Desktop subtitle visible */
+  .desktop-subtitle {
+    display: block;
+  }
+
+  .tablet-subtitle,
+  .mobile-subtitle {
+    display: none;
+  }
+
+  /* Tablet: 768px - 991px */
+  @media (min-width: 768px) and (max-width: 991px) {
+    .desktop-subtitle,
+    .mobile-subtitle {
+      display: none;
+    }
+
+    .tablet-subtitle {
+      display: block;
+    }
   }
 
   /* CTA Buttons */
   .hero-cta {
     display: flex;
-    gap: var(--space-lg);
+    gap: 32px; /* Desktop gap */
     margin-bottom: var(--space-xl);
     justify-content: center;
   }
@@ -192,20 +222,20 @@ const { className = '' } = Astro.props;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 190px;
-    height: 49px;
-    min-width: 190px;
+    width: 198px;
+    height: 41px;
+    min-width: 198px;
     padding: 12px 32px;
     gap: 8px;
-    font-family: var(--font-family-subtitle);
-    font-size: var(--font-size-hero-btn);
+    font-family: 'Cleric Sans Text', sans-serif;
     font-weight: 500;
     font-style: normal;
+    font-size: 16px;
     line-height: 140%;
     letter-spacing: 0%;
     text-align: center;
     text-decoration: none;
-    border-radius: var(--radius-hero-btn);
+    border-radius: 150px;
     transition: all var(--transition-normal);
     cursor: pointer;
     border: none;
@@ -243,50 +273,57 @@ const { className = '' } = Astro.props;
     position: relative;
     z-index: 1;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   .hero-image {
     width: 1112px;
     height: 648.6666870117188px;
-    transform: rotate(0deg);
     opacity: 1;
     border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-hero-mockup);
+    box-shadow: 0px 3.38px 20.29px 0px rgba(39, 43, 49, 0.1);
   }
 
   .hero-phone {
     position: absolute;
-    bottom: 0%;
     right: -5%;
     width: 320px;
     height: 441px;
     transform: rotate(0deg);
     opacity: 1;
     border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-hero-mockup);
+    box-shadow: 0px 3.38px 64.5px 5px rgba(39, 43, 49, 0.1);
+    top: 33%;
     z-index: 2;
   }
 
+  .mobile-phone {
+    display: none;
+  }
+
   /* Mobile Styles */
-  @media (max-width: 1023px) {
+  @media (max-width: 991px) {
     .container {
       gap: var(--space-2xl);
     }
-
-    .hero-title {
-      font-size: clamp(2rem, 8vw, 3rem);
+    .hero-content{
+      padding: 0;
     }
-
-    .hero-subtitle {
-      font-size: clamp(1rem, 4vw, 1.25rem);
-    }
-
     .hero-cta {
       justify-content: center;
       flex-wrap: wrap;
+      gap: 24px; /* Tablet gap */
     }
 
+    .hero-image {
+      width: 734px;
+      height: 428.1666259765625px;
+    }
+
+    .hero-phone {
+      width: 220px;
+      height: 303px;
+    }
     .interface-main {
       grid-template-columns: 1fr;
     }
@@ -297,35 +334,96 @@ const { className = '' } = Astro.props;
     }
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: 767px){
     .hero {
-      padding-top: 80px;
-      min-height: auto;
-      padding-bottom: var(--space-4xl);
+      height: 950px;
+      max-height: 1080px;
+      padding-bottom: 0;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      overflow: visible;
     }
 
     .hero-cta {
-      flex-direction: column;
+      flex-direction: row;
       align-items: center;
+      justify-content: center;
+      gap: 16px; /* Mobile gap */
+      flex-wrap: wrap;
+    }
+
+    .hero-image {
+      display: none !important;
+    }
+
+    .desktop-phone {
+      display: none !important;
+    }
+
+    .mobile-phone {
+      display: block !important;
+      width: 408px;
+      height: 645px;
+      transform: none;
+      z-index: 1;
+    }
+
+    .mobile-title {
+      display: block !important;
+    }
+
+    .desktop-title {
+      display: none !important;
+    }
+
+    .desktop-subtitle,
+    .tablet-subtitle {
+      display: none !important;
+    }
+
+    .mobile-subtitle {
+      display: block !important;
+    }
+
+    .hero-mockup {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      padding: 0;
+      margin: 0;
+    }
+
+    .hero-phone {
+      display: none !important;
+    }
+
+    .mobile-phone {
+      display: block !important;
+      width: 408px;
+      height: 645px;
+      position: static;
     }
 
     .btn {
-      width: auto;
-      min-width: 160px;
-      height: auto;
+      width: 190px;
+      height: 49px;
+      min-width: 190px;
       padding: 10px 24px;
       max-width: 250px;
+      font-size: 18px;
     }
   }
 
   /* Additional responsive breakpoints for hero buttons */
   @media (max-width: 480px) {
     .btn {
-      width: auto;
-      min-width: 140px;
-      height: auto;
-      padding: 8px 20px;
-      font-size: 16px;
+      width: 190px;
+      min-width: 190px;
+      height: 49px;
+      padding: 10px 24px;
+      font-size: 18px;
     }
 
     .press-badge {
@@ -333,14 +431,14 @@ const { className = '' } = Astro.props;
       min-width: 280px;
       height: auto;
       padding: 8px 12px;
-      flex-direction: column;
-      text-align: center;
+      flex-direction: row;
+      text-align: left;
       gap: 8px;
     }
   }
 
   /* Additional responsive breakpoints for press badge */
-  @media (max-width: 1023px) {
+  @media (max-width: 991px) {
     .press-badge {
       width: auto;
       min-width: 320px;
@@ -352,22 +450,40 @@ const { className = '' } = Astro.props;
 
   @media (max-width: 767px) {
     .press-badge {
-      width: auto;
-      min-width: 280px;
-      height: auto;
-      padding: 8px 12px;
+      width: 408px;
+      height: 38px;
+      gap: 8px;
+      border-radius: 6px;
+      border-width: 1px;
+      padding: 8px;
     }
 
     .badge-label {
-      width: auto;
-      min-width: 80px;
-      height: auto;
+      width: 101px;
+      height: 22px;
+      opacity: 0.8;
+      gap: 8px;
+      border-radius: 4px;
       padding: 3px 8px;
       font-size: 12px;
     }
+
+    .badge-text {
+      font-family: 'Cleric Sans Text', sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 12px;
+      line-height: 140%;
+      letter-spacing: 0.01em;
+      vertical-align: middle;
+      color: #ffffffb3;
+    }
+    .hero{
+      padding-top: 0;
+    }
   }
 
-  @media (max-width: 1023px) {
+  @media (max-width: 991px) {
     .badge-label {
       width: auto;
       min-width: 90px;
@@ -378,5 +494,11 @@ const { className = '' } = Astro.props;
     .badge-arrow {
       display: none;
     }
+  }
+
+  @media (min-width: 2560px) {
+    .hero {
+    padding-top: 2vh;
+  }
   }
 </style>

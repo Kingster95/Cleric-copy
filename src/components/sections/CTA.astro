@@ -13,7 +13,9 @@ const { className = '' } = Astro.props;
       <div class="cta-content">
         <div class="cta-text">
           <h2 class="cta-title">Unblock your engineers.<br>Start in minutes.</h2>
-          <p class="cta-subtitle">Setup takes minutes. Read-only by default.</p>
+          <p class="cta-subtitle desktop-subtitle">Setup takes minutes. Read-only by <br>default.</p>
+          <p class="cta-subtitle tablet-subtitle">Connect with a scoped, read-only <br> service account. No code changes.</p>
+          <p class="cta-subtitle mobile-subtitle">Connect with a scoped, read-only <br> service account. No code changes.</p>
         </div>
 
         <div class="cta-actions">
@@ -45,9 +47,9 @@ const { className = '' } = Astro.props;
     background-position: center;
     background-repeat: no-repeat;
     border-radius: 16px;
-    padding: clamp(80px, 6.25vw, 120px);
+    padding: clamp(60px, 4.5vw, 80px);
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: flex-start;
     box-sizing: border-box;
     overflow: hidden;
@@ -69,14 +71,17 @@ const { className = '' } = Astro.props;
     z-index: 2;
     width: 100%;
     height: 100%;
+    display: flex;
+    align-items: center;
   }
 
   .cta-content {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: clamp(40px, 3.33vw, 64px);
-    max-width: 600px;
+    gap: clamp(32px, 2.5vw, 48px);
+    max-width: 500px;
+    width: 100%;
   }
 
   .cta-text {
@@ -86,13 +91,6 @@ const { className = '' } = Astro.props;
   }
 
   .cta-title {
-    font-family: 'GT Alpina', var(--font-family-title);
-    font-weight: 600;
-    font-style: normal;
-    font-size: clamp(32px, 2.5vw, 48px);
-    line-height: 114.99999999999999%;
-    letter-spacing: -3%;
-    vertical-align: middle;
     color: #FFFFFF;
     margin: 0;
   }
@@ -103,9 +101,14 @@ const { className = '' } = Astro.props;
     font-style: normal;
     font-size: clamp(18px, 1.25vw, 24px);
     line-height: 125%;
-    letter-spacing: 0.75%;
+    letter-spacing: 0.0075em;
     color: rgba(255, 255, 255, 0.9);
     margin: 0;
+  }
+
+  .tablet-subtitle,
+  .mobile-subtitle {
+    display: none;
   }
 
   .cta-actions {
@@ -115,13 +118,15 @@ const { className = '' } = Astro.props;
   }
 
   .cta-button {
-    font-family: 'Cleric Sans Text', var(--font-family-subtitle);
-    font-weight: 600;
+    font-family: 'Cleric Sans Text';
+    font-weight: 500;
     font-style: normal;
-    font-size: 16px;
-    line-height: 1.4;
-    width: clamp(140px, 8.33vw, 160px);
-    height: clamp(35px, 2.14vw, 41px);
+    font-size: 15px;
+    line-height: 140%;
+    letter-spacing: 0;
+    text-align: center;
+    width: 160px;
+    height: 41px;
     min-width: 160px;
     border-radius: 150px;
     padding-top: clamp(8px, 0.52vw, 10px);
@@ -136,6 +141,7 @@ const { className = '' } = Astro.props;
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
+    text-decoration: none;
   }
 
   .cta-button.primary {
@@ -162,35 +168,99 @@ const { className = '' } = Astro.props;
     transform: translateY(-2px);
   }
 
+  /* Tablet Styles */
+  @media (max-width: 991px) and (min-width: 768px) {
+    .cta-card {
+      width: 641px;
+      height: 656px;
+    }
+
+    .cta-title {
+      font-family: 'GT Alpina';
+      font-weight: 500;
+      font-style: normal;
+      font-size: 48px;
+      line-height: 114.99999999999999%;
+      letter-spacing: -0.03em;
+      vertical-align: middle;
+    }
+
+    .desktop-subtitle,
+    .mobile-subtitle {
+      display: none;
+    }
+
+    .tablet-subtitle {
+      display: block;
+    }
+
+    .cta-subtitle {
+      font-family: 'Cleric Sans Text';
+      font-weight: 400;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 125%;
+      letter-spacing: 0.0075em;
+    }
+  }
+
   /* Mobile Styles */
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
+    .cta-card {
+      width: 408px;
+      height: 537px;
+    }
+
+    .cta-title {
+      font-family: 'GT Alpina';
+      font-weight: 500;
+      font-style: normal;
+      font-size: 36px;
+      line-height: 114.99999999999999%;
+      letter-spacing: -0.03em;
+      vertical-align: middle;
+    }
+
+    .desktop-subtitle,
+    .tablet-subtitle {
+      display: none;
+    }
+
+    .mobile-subtitle {
+      display: block;
+    }
+
+    .cta-subtitle {
+      font-family: 'Cleric Sans Text';
+      font-weight: 400;
+      font-style: normal;
+      font-size: 18px;
+      line-height: 125%;
+      letter-spacing: 0.0075em;
+    }
+
+    .cta-button {
+      width: 344px;
+      height: 41px;
+      min-width: 160px;
+      border-radius: 150px;
+    }
+
     .cta-content {
-      align-items: center;
-      text-align: center;
+      align-items: flex-start;
+      text-align: left;
       max-width: 100%;
+      transform: translateX(-10%);
     }
 
     .cta-actions {
       justify-content: center;
       width: 100%;
-    }
-
-    .cta-button {
-      flex: 1;
-      min-width: 140px;
-      max-width: 200px;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .cta-actions {
       flex-direction: column;
       align-items: center;
-    }
-
-    .cta-button {
-      width: 100%;
-      max-width: 280px;
+      gap: 16px;
+      align-self: center;
     }
   }
+
 </style>

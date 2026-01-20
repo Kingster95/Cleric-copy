@@ -15,7 +15,8 @@ const { className = '' } = Astro.props;
       <p class="section-subtitle">Cleric investigates problems, surfaces answers, and learns from your engineers.</p>
     </div>
     <div class="diagram-container">
-      <img src="/diagram.png" alt="How Cleric Works - Platform Engineering, Application Engineering, and SRE workflow diagram" class="diagram-image" />
+      <img src="/diagram.png" alt="How Cleric Works - Platform Engineering, Application Engineering, and SRE workflow diagram" class="diagram-image desktop-diagram" />
+      <img src="/diagram-square.png" alt="How Cleric Works - Platform Engineering, Application Engineering, and SRE workflow diagram" class="diagram-image mobile-diagram" />
     </div>
   </div>
 </section>
@@ -51,8 +52,8 @@ const { className = '' } = Astro.props;
   }
 
   .section-badge {
-    width: clamp(95px, 6.2vw, 119px);
-    height: clamp(26px, 1.67vw, 32px);
+    width: 119px;
+    height: 32px;
     border-radius: 4px;
     padding-top: clamp(8px, 0.52vw, 10px);
     padding-right: clamp(13px, 0.83vw, 16px);
@@ -62,11 +63,14 @@ const { className = '' } = Astro.props;
     transform: rotate(0deg);
     opacity: 1;
     background: #E0E0E0;
-    color: #666666;
-    font-family: var(--font-family-subtitle);
+    color: rgba(107, 107, 107, 1);
+    font-family: 'Cleric Sans Text', sans-serif;
     font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.01em;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 120%;
+    letter-spacing: -0.0025em;
+    text-align: center;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -76,11 +80,11 @@ const { className = '' } = Astro.props;
 
   .section-title {
     font-family: 'GT Alpina', var(--font-family-title);
-    font-weight: 500;
+    font-weight: 400;
     font-style: normal;
     font-size: clamp(32px, 2.5vw, 48px);
     line-height: 114.99999999999999%;
-    letter-spacing: -0.5%;
+    letter-spacing: -0.005em;
     text-align: center;
     vertical-align: bottom;
     color: #313131;
@@ -89,11 +93,11 @@ const { className = '' } = Astro.props;
 
   .section-subtitle {
     font-family: 'Cleric Sans Text', var(--font-family-subtitle);
-    font-weight: 500;
+    font-weight: 400;
     font-style: normal;
-    font-size: clamp(18px, 1.25vw, 24px);
+    font-size: 24px;
     line-height: 125%;
-    letter-spacing: 0.75%;
+    letter-spacing: 0.0075em;
     text-align: center;
     color: #6B6B6B;
     margin: 0;
@@ -113,9 +117,58 @@ const { className = '' } = Astro.props;
     box-shadow: none;
   }
 
+  .mobile-diagram {
+    display: none;
+  }
+
+  .desktop-diagram {
+    display: block;
+  }
+
+  /* Tablet Styles */
+  @media (max-width: 991px) and (min-width: 768px) {
+    .how-it-works {
+      width: 834px;
+      height: 1045px;
+    }
+
+    .section-title {
+      font-family: 'GT Alpina';
+      font-weight: 400;
+      font-style: normal;
+      font-size: 44px;
+      line-height: 115%;
+      letter-spacing: -0.005em;
+      text-align: center;
+      vertical-align: bottom;
+      color: rgba(49, 49, 49, 1);
+    }
+
+    .section-subtitle {
+      font-family: 'Cleric Sans Text';
+      font-weight: 400;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 125%;
+      letter-spacing: 0.0075em;
+      text-align: center;
+      color: rgba(107, 107, 107, 1);
+    }
+
+    .desktop-diagram {
+      display: none;
+    }
+
+    .mobile-diagram {
+      display: block;
+    }
+  }
+
   /* Mobile Styles */
   @media (max-width: 767px) {
     .how-it-works {
+      width: 440px;
+      height: 677px;
       padding: 3rem 0;
     }
 
@@ -124,14 +177,36 @@ const { className = '' } = Astro.props;
     }
 
     .section-title {
-      font-size: 2.5rem;
+      font-family: 'GT Alpina';
+      font-weight: 400;
+      font-style: normal;
+      font-size: 36px;
+      line-height: 115%;
+      letter-spacing: -0.005em;
+      text-align: center;
+      vertical-align: bottom;
+      color: rgba(49, 49, 49, 1);
     }
 
     .section-subtitle {
-      font-size: 1.1rem;
+      font-family: 'Cleric Sans Text';
+      font-weight: 400;
+      font-style: normal;
+      font-size: 18px;
+      line-height: 125%;
+      letter-spacing: 0.0075em;
+      text-align: center;
+      color: rgba(107, 107, 107, 1);
     }
 
-    .diagram-image {
+    .desktop-diagram {
+      display: none;
+    }
+
+    .mobile-diagram {
+      display: block;
+      width: 408px;
+      height: 366.0560607910156px;
       border-radius: var(--radius-md);
     }
   }

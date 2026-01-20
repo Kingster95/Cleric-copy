@@ -129,12 +129,12 @@ const { className = '' } = Astro.props;
   }
 
   .footer-heading {
-    font-family: 'Cleric Sans Text', var(--font-family-subtitle);
-    font-weight: 700;
+    font-family: 'Cleric Sans Text';
+    font-weight: 600;
     font-style: normal;
     font-size: 15px;
     line-height: 140%;
-    letter-spacing: 0%;
+    letter-spacing: 0;
     color: #000000;
     margin: 0;
   }
@@ -149,12 +149,12 @@ const { className = '' } = Astro.props;
   }
 
   .footer-link {
-    font-family: 'Cleric Sans Text', var(--font-family-subtitle);
-    font-weight: 500;
+    font-family: 'Cleric Sans Text';
+    font-weight: 400;
     font-style: normal;
     font-size: 15px;
     line-height: 140%;
-    letter-spacing: 0%;
+    letter-spacing: 0;
     color: #000000;
     text-decoration: none;
     transition: color 0.2s ease;
@@ -201,9 +201,17 @@ const { className = '' } = Astro.props;
     font-style: normal;
     font-size: 15px;
     line-height: 140%;
-    letter-spacing: 0%;
+    letter-spacing: 0;
     vertical-align: bottom;
     color: #666666;
+  }
+
+  /* Tablet Styles */
+  @media (max-width: 1024px) and (min-width: 769px) {
+    .footer-links {
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(30px, 4vw, 40px);
+    }
   }
 
   /* Mobile Styles */
@@ -214,24 +222,38 @@ const { className = '' } = Astro.props;
     }
 
     .footer-links {
-      grid-template-columns: 1fr;
-      gap: clamp(30px, 4vw, 40px);
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, auto);
+      gap: clamp(20px, 3vw, 30px);
+    }
+
+    .footer-column:first-child {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .footer-column:nth-child(2) {
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    .footer-column:last-child {
+      grid-column: 1 / -1;
+      grid-row: 2;
+    }
+
+    .footer-column:last-child .footer-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(3, auto);
+      gap: clamp(8px, 0.8vw, 12px) clamp(16px, 2vw, 20px);
+      grid-auto-flow: column;
     }
 
     .footer-bottom {
       flex-direction: column;
       gap: clamp(16px, 3vw, 20px);
       text-align: center;
-    }
-  }
-
-  @media (max-width: 1024px) and (min-width: 769px) {
-    .footer-links {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .footer-column:last-child {
-      grid-column: 1 / -1;
     }
   }
 </style>

@@ -14,15 +14,27 @@ const { className = '' } = Astro.props;
         <img src="/testimonial_1.png" alt="Maxime Fouilleul" class="profile-image" />
       </div>
       <div class="testimonial-text">
-        <blockquote class="quote">
+        <img src="/blablacar-logo.png" alt="BlaBlaCar" class="company-logo-top" />
+        <blockquote class="quote desktop-quote">
           "I see Cleric functioning as an SRE companion for our Software Engineers. If one team has already solved an alert, we can apply that knowledge elsewhere."
         </blockquote>
+        <blockquote class="quote tablet-quote">
+          "I see Cleric functioning as an SRE <br>companion for our Software Engineers.<br> If one team has already solved an alert, we <br> can apply that knowledge elsewhere."
+        </blockquote>
+        <blockquote class="quote mobile-quote">
+          "I see Cleric functioning as an SRE companion for our <br> Software Engineers. If one team <br> has already solved an alert, we <br> can apply that knowledge <br> elsewhere."
+        </blockquote>
         <div class="testimonial-author">
-          <div class="company-info">
-            <h4 class="company-name">BlaBlaCar</h4>
-            <div class="author-details">
-              <p class="author-name">Maxime Fouilleul</p>
-              <p class="author-title">Head of Infrastructure & Operations | BlaBlaCar</p>
+          <div class="author-info">
+            <img src="/testimonial2.png" alt="Maxime Fouilleul" class="author-avatar" />
+            <div class="author-text">
+              <div class="company-info">
+                <h4 class="company-name">BlaBlaCar</h4>
+                <div class="author-details">
+                  <p class="author-name">Maxime Fouilleul</p>
+                  <p class="author-title">Head of Infrastructure & Operations | BlaBlaCar</p>
+                </div>
+              </div>
             </div>
           </div>
           <a href="#" class="case-study-btn">Read case study</a>
@@ -40,7 +52,7 @@ const { className = '' } = Astro.props;
     height: 520px;
     padding-top: 40px;
     padding-right: 4.17vw; /* 80px / 1920px = 4.17% */
-    padding-bottom: 160px;
+    padding-bottom: 280px;
     padding-left: 4.17vw; /* 80px / 1920px = 4.17% */
     gap: 8px;
     transform: rotate(0deg);
@@ -87,15 +99,27 @@ const { className = '' } = Astro.props;
   }
 
   .quote {
-    font-family: 'Cleric Sans Text', var(--font-family-subtitle);
+    font-family: 'Cleric Sans Text', sans-serif;
     font-weight: 400;
     font-style: normal;
     font-size: 30px;
     line-height: 140%;
-    letter-spacing: -0.25%;
+    letter-spacing: -0.0025em;
     font-variant-numeric: stacked-fractions;
-    color: #313131;
+    color: rgba(49, 49, 49, 1);
     margin: 0;
+  }
+
+  .mobile-quote {
+    display: none;
+  }
+
+  .tablet-quote {
+    display: none;
+  }
+
+  .desktop-quote {
+    display: block;
   }
 
   .testimonial-author {
@@ -121,6 +145,25 @@ const { className = '' } = Astro.props;
     letter-spacing: -0.01em;
   }
 
+  .company-name-top {
+    display: none;
+    font-family: var(--font-family-title);
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #48484A;
+    margin: 0 0 1.5rem 0;
+    letter-spacing: -0.01em;
+  }
+
+  .company-logo-top {
+    display: none;
+    width: 132px;
+    height: 24px;
+    margin: 0 0 1.5rem 0;
+    object-fit: contain;
+    object-position: left center;
+  }
+
   .author-details {
     display: flex;
     flex-direction: column;
@@ -128,25 +171,50 @@ const { className = '' } = Astro.props;
   }
 
   .author-name {
-    font-family: 'Cleric Sans Text', var(--font-family-subtitle);
-    font-weight: 700;
+    font-family: 'Cleric Sans Text', sans-serif;
+    font-weight: 600;
     font-style: normal;
     font-size: 18px;
     line-height: 140%;
-    letter-spacing: 0%;
-    color: #313131;
+    letter-spacing: 0;
+    color: rgba(49, 49, 49, 1);
     margin: 0;
   }
 
   .author-title {
-    font-family: 'Cleric Sans Text', var(--font-family-subtitle);
-    font-weight: 500;
+    font-family: 'Cleric Sans Text', sans-serif;
+    font-weight: 400;
     font-style: normal;
     font-size: 18px;
     line-height: 140%;
-    letter-spacing: 0%;
-    color: #313131;
+    letter-spacing: 0;
+    color: rgba(49, 49, 49, 1);
     margin: 0;
+  }
+
+  .author-company {
+    font-family: 'Cleric Sans Text', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 140%;
+    letter-spacing: 0;
+    color: rgba(49, 49, 49, 1);
+    margin: 0;
+  }
+
+  .author-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .author-avatar {
+    display: none;
+  }
+
+  .author-text {
+    flex: 1;
   }
 
   .case-study-btn {
@@ -154,13 +222,19 @@ const { className = '' } = Astro.props;
     align-items: center;
     justify-content: center;
     background: #000000;
-    color: #FFFFFF;
-    padding: 0.75rem 1.5rem;
-    border-radius: 2rem;
+    color: rgba(255, 255, 255, 1);
+    width: 166px;
+    height: 41px;
+    padding: 0;
+    border-radius: 150px;
     text-decoration: none;
-    font-family: var(--font-family-subtitle);
-    font-size: 0.9rem;
+    font-family: 'Cleric Sans Text', sans-serif;
     font-weight: 500;
+    font-style: normal;
+    font-size: 15px;
+    line-height: 140%;
+    letter-spacing: 0;
+    text-align: center;
     transition: all var(--transition-normal);
     white-space: nowrap;
   }
@@ -182,29 +256,131 @@ const { className = '' } = Astro.props;
 
   .profile-image {
     width: 320px;
-    height: 100%;
+    height: 85%;
     object-fit: cover;
+    object-position: center 20%;
     border-radius: 0;
+    transform: scale(1.5);
   }
 
-  /* Mobile Styles */
-  @media (max-width: 1023px) {
+  /* Tablet & Mobile Styles */
+  @media (max-width: 991px) {
     .testimonial {
-      padding: 3rem 0;
+      padding: 4rem 0;
+      min-height: 600px;
+    }
+
+    .container {
+      width: 642px;
+      height: 399px;
+      border-radius: 16px;
+      border-width: 1px;
     }
 
     .testimonial-content {
-      grid-template-columns: 1fr;
-      gap: 2.5rem;
-      text-align: center;
+      flex-direction: column;
+      gap: 0;
+      text-align: left;
+    }
+
+    .testimonial-image {
+      display: none;
+    }
+
+    .testimonial-text {
+      width: 100%;
+      position: relative;
+    }
+
+    .company-name-top {
+      display: none;
+    }
+
+    .company-logo-top {
+      display: block !important;
+      position: absolute;
+      top: 32px;
+      left: 32px;
+      margin: 0;
+    }
+
+    .company-name {
+      display: none !important;
+    }
+
+    .desktop-quote {
+      display: none !important;
+    }
+
+    .tablet-quote {
+      display: block !important;
+    }
+
+    .mobile-quote {
+      display: none !important;
+    }
+
+    .quote {
+      margin: 0;
+      font-family: 'Cleric Sans Text', sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 28px;
+      line-height: 140%;
+      letter-spacing: -0.0025em;
+      font-variant-numeric: stacked-fractions;
+      color: rgba(49, 49, 49, 1);
+      margin-top: 5%;
     }
 
     .testimonial-author {
-      justify-content: center;
-      text-align: center;
-      flex-direction: column;
+      padding: 0 32px 32px 32px;
+      margin: 0;
+      justify-content: space-between;
+      text-align: left;
+      flex-direction: row;
       align-items: center;
       gap: 1.5rem;
+      flex-wrap: nowrap;
+    }
+
+    .author-details {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      align-items: flex-start;
+      flex: 1;
+      position: absolute;
+      left: 112px; /* 32px from left + 72px avatar + 8px gap */
+      bottom: 32px;
+      width: 316px;
+      height: 75px;
+    }
+
+    .author-title::before {
+      display: none;
+    }
+
+    .case-study-btn {
+      position: absolute;
+      right: 32px;
+      bottom: 49px;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    .author-avatar {
+      display: block;
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center;
+      position: absolute;
+      bottom: 32px;
+      left: 32px;
+      background-color: #FFFFFF;
+      box-shadow: 0 0 0 2px #FFFFFF;
     }
 
     .quote {
@@ -217,12 +393,65 @@ const { className = '' } = Astro.props;
       padding: 2rem 0;
     }
 
-    .testimonial-content {
-      gap: 2rem;
+    .container {
+      width: 408px;
+      height: 493px;
+      border-radius: 16px;
+      border-width: 1px;
+    }
+
+    .testimonial-text {
+      padding: 32px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .testimonial-author {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 0;
+      margin: 0;
+      position: static;
+    }
+
+    .author-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .case-study-btn {
+      position: static;
+      align-self: flex-start;
+      margin-top: 0;
     }
 
     .quote {
-      font-size: 1.5rem;
+      padding: 64px 0 24px 0;
+      margin: 0;
+      font-family: 'Cleric Sans Text', sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 24px;
+      line-height: 140%;
+      letter-spacing: -0.0025em;
+      font-variant-numeric: stacked-fractions;
+      color: rgba(49, 49, 49, 1);
+    }
+
+    .mobile-quote {
+      display: block !important;
+    }
+
+    .tablet-quote {
+      display: none !important;
+    }
+
+    .desktop-quote {
+      display: none !important;
     }
 
     .company-name {
@@ -235,6 +464,31 @@ const { className = '' } = Astro.props;
 
     .author-title {
       font-size: 0.9rem;
+    }
+
+    .author-details {
+      flex-direction: column;
+      gap: 4px;
+      align-items: flex-start;
+      position: static;
+      margin-left: 0;
+      width: auto;
+      height: auto;
+    }
+
+    .author-avatar {
+      position: static;
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center;
+      background-color: #FFFFFF;
+      box-shadow: 0 0 0 2px #FFFFFF;
+    }
+
+    .author-title::before {
+      display: none;
     }
   }
 </style>

@@ -12,7 +12,9 @@ const { className = '' } = Astro.props;
     <div class="section-header">
       <div class="section-badge">Integrations</div>
       <h2 class="section-title">Built to plug right into your stack</h2>
-      <p class="section-subtitle">Connect your whole stack in an afternoon. Read access by default, write access when you're ready.</p>
+      <p class="section-subtitle desktop-subtitle">Connect your whole stack in an afternoon. Read access by default, write access when you're ready.</p>
+      <p class="section-subtitle tablet-subtitle">Connect your whole stack in an afternoon. Read access by default,<br> write access when you're ready.</p>
+      <p class="section-subtitle mobile-subtitle">Connect your whole stack in an afternoon. <br> Read access by default, write access when<br> you're ready.</p>
     </div>
 
     <div class="integrations-container">
@@ -113,22 +115,31 @@ const { className = '' } = Astro.props;
   }
 
   .section-badge {
-    width: clamp(90px, 5.89vw, 113px);
-    height: clamp(26px, 1.67vw, 32px);
+    width: 119px;
+    height: 32px;
     border-radius: 4px;
     padding-top: clamp(8px, 0.52vw, 10px);
-    padding-right: clamp(12px, 0.83vw, 16px);
+    padding-right: clamp(13px, 0.83vw, 16px);
     padding-bottom: clamp(8px, 0.52vw, 10px);
-    padding-left: clamp(12px, 0.83vw, 16px);
+    padding-left: clamp(13px, 0.83vw, 16px);
     gap: clamp(3px, 0.21vw, 4px);
+    transform: rotate(0deg);
+    opacity: 1;
     background: #E0E0E0;
-    color: #666666;
-    font-family: 'Cleric Sans Text', var(--font-family-subtitle);
-    font-weight: 600;
-    font-style: normal;
+    color: rgba(107, 107, 107, 1);
+    font-family: 'Cleric Sans Text', sans-serif;
     font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
     line-height: 120%;
-    letter-spacing: -0.25%;
+    letter-spacing: -0.0025em;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    box-sizing: border-box;
+    letter-spacing: -0.0025em;
     text-align: center;
     display: flex;
     align-items: center;
@@ -138,11 +149,11 @@ const { className = '' } = Astro.props;
 
   .section-title {
     font-family: 'GT Alpina', var(--font-family-title);
-    font-weight: 500;
+    font-weight: 400;
     font-style: normal;
-    font-size: clamp(32px, 2.5vw, 48px);
+    font-size: 48px;
     line-height: 114.99999999999999%;
-    letter-spacing: -0.5%;
+    letter-spacing: -0.005em;
     text-align: center;
     vertical-align: bottom;
     color: #313131;
@@ -151,23 +162,37 @@ const { className = '' } = Astro.props;
 
   .section-subtitle {
     font-family: 'Cleric Sans Text', var(--font-family-subtitle);
-    font-weight: 500;
+    font-weight: 400;
     font-style: normal;
-    font-size: clamp(18px, 1.25vw, 24px);
+    font-size: 24px;
     line-height: 125%;
-    letter-spacing: 0.75%;
+    letter-spacing: 0.0075em;
     text-align: center;
-    color: #6B6B6B;
+    color: rgba(107, 107, 107, 1);
     margin: 0;
-    white-space: nowrap;
+  }
+
+  .desktop-subtitle {
+    max-width: 800px;
+    margin: 0 auto;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
     overflow: hidden;
-    text-overflow: ellipsis;
+    line-height: 1.3;
+  }
+
+
+  .tablet-subtitle,
+  .mobile-subtitle {
+    display: none;
   }
 
   .integrations-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: clamp(12px, 0.83vw, 16px);
     width: 100%;
     max-width: 1200px;
@@ -179,6 +204,7 @@ const { className = '' } = Astro.props;
     justify-content: center;
     align-items: center;
     gap: clamp(40px, 4.17vw, 80px);
+    width: 100%;
   }
 
   .first-row {
@@ -244,7 +270,7 @@ const { className = '' } = Astro.props;
     font-style: normal;
     font-size: 15px;
     line-height: 140%;
-    letter-spacing: 0%;
+    letter-spacing: 0;
     text-align: center;
     vertical-align: middle;
     color: #666666;
@@ -252,9 +278,41 @@ const { className = '' } = Astro.props;
   }
 
   /* Tablet Styles */
-  @media (max-width: 1024px) {
+  /* Tablet Styles */
+  @media (max-width: 1024px) and (min-width: 768px) {
+    .desktop-subtitle,
+    .mobile-subtitle {
+      display: none;
+    }
+
+    .tablet-subtitle {
+      display: block;
+    }
+    .section-title {
+      font-family: 'GT Alpina';
+      font-weight: 400;
+      font-style: normal;
+      font-size: 44px;
+      line-height: 114.99999999999999%;
+      letter-spacing: -0.005em;
+      text-align: center;
+      vertical-align: middle;
+      color: rgba(49, 49, 49, 1);
+    }
+
+    .section-subtitle {
+      font-family: 'Cleric Sans Text';
+      font-weight: 400;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 125%;
+      letter-spacing: 0.0075em;
+      text-align: center;
+      color: rgba(107, 107, 107, 1);
+    }
+
     .integrations-row {
-      gap: clamp(30px, 3vw, 60px);
+      gap: 16px;
     }
 
     .integrations-container {
@@ -262,30 +320,53 @@ const { className = '' } = Astro.props;
     }
   }
 
-  /* Phone Styles */
+  /* Mobile Styles */
   @media (max-width: 768px) {
-    .integrations-row {
-      gap: clamp(16px, 4vw, 32px);
-      flex-wrap: wrap;
-      justify-content: center;
+    .desktop-subtitle,
+    .tablet-subtitle {
+      display: none;
+    }
+
+    .mobile-subtitle {
+      display: block;
+    }
+    .section-title {
+      font-family: 'GT Alpina';
+      font-weight: 400;
+      font-style: normal;
+      font-size: 36px;
+      line-height: 114.99999999999999%;
+      letter-spacing: -0.005em;
+      text-align: center;
+      vertical-align: bottom;
+      color: rgba(49, 49, 49, 1);
+    }
+
+    .section-subtitle {
+      font-family: 'Cleric Sans Text';
+      font-weight: 400;
+      font-style: normal;
+      font-size: 16px;
+      line-height: 125%;
+      text-align: center;
+      color: rgba(107, 107, 107, 1);
     }
 
     .integrations-container {
-      gap: clamp(8px, 1.5vw, 12px);
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      max-width: none;
+      justify-items: center;
+    }
+
+    .integrations-row {
+      display: contents;
     }
 
     .integration-item {
-      width: clamp(40px, 8vw, 48px);
-      height: clamp(40px, 8vw, 48px);
-    }
-
-    /* Stack icons in 5 per row on mobile */
-    .first-row {
-      max-width: calc(5 * (clamp(40px, 8vw, 48px) + clamp(16px, 4vw, 32px)) - clamp(16px, 4vw, 32px));
-    }
-
-    .second-row {
-      max-width: calc(5 * (clamp(40px, 8vw, 48px) + clamp(16px, 4vw, 32px)) - clamp(16px, 4vw, 32px));
+      width: 64px;
+      height: 64px;
     }
   }
 </style>

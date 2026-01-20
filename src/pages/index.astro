@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import NotificationBar from '../components/notification/NotificationBar.astro';
 import Header from '../components/navigation/Header.astro';
 import Hero from '../components/sections/Hero.astro';
 import Stats from '../components/sections/Stats.astro';
@@ -14,6 +15,7 @@ import Footer from '../components/sections/Footer.astro';
 ---
 
 <Layout>
+	<NotificationBar />
 	<div class="main-container">
 		<Header />
 		<Hero />
@@ -34,15 +36,14 @@ import Footer from '../components/sections/Footer.astro';
 		width: var(--main-container-width);
 		height: auto;
 		min-height: 100vh;
+		max-height: 1380px;
 		margin: 0 auto;
-		padding: var(--main-container-padding-top) var(--main-container-padding-right) var(--main-container-padding-bottom) var(--main-container-padding-left);
+		padding: 0 var(--main-container-padding-right) var(--main-container-padding-bottom) var(--main-container-padding-left);
 		gap: var(--main-container-gap);
 		display: flex;
 		flex-direction: column;
 		opacity: 1;
 		position: relative;
-		overflow-x: hidden;
-		overflow-y: scroll;
 		background-image: url('/hero_background.jpg');
 		background-size: cover;
 		background-position: center center;

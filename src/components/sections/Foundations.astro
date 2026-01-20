@@ -12,7 +12,7 @@ const { className = '' } = Astro.props;
     <div class="section-header">
       <div class="section-badge">Under the hood</div>
       <h2 class="section-title">Simple on the surface. Serious underneath.</h2>
-      <p class="section-subtitle">Three purpose-built systems that turn alerts into answers—and make every investigation faster than the last.</p>
+      <p class="section-subtitle">Three purpose-built systems that turn alerts into answers—and make every<br>investigation faster than the last.</p>
     </div>
 
     <div class="foundations-layout">
@@ -83,8 +83,8 @@ const { className = '' } = Astro.props;
   }
 
   .section-badge {
-    width: clamp(95px, 7.3vw, 140px);
-    height: clamp(26px, 1.67vw, 32px);
+    width: 140px;
+    height: 32px;
     border-radius: 4px;
     padding-top: clamp(8px, 0.52vw, 10px);
     padding-right: clamp(13px, 0.83vw, 16px);
@@ -94,40 +94,45 @@ const { className = '' } = Astro.props;
     transform: rotate(0deg);
     opacity: 1;
     background: #E0E0E0;
-    color: #666666;
-    font-family: 'Cleric Sans Text', var(--font-family-subtitle);
+    color: rgba(107, 107, 107, 1);
+    font-family: 'Cleric Sans Text', sans-serif;
     font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.01em;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 120%;
+    letter-spacing: -0.0025em;
+    text-align: center;
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 1rem;
     box-sizing: border-box;
   }
 
   .section-title {
     font-family: 'GT Alpina', var(--font-family-title);
-    font-weight: 500;
+    font-weight: 400;
     font-style: normal;
-    font-size: clamp(32px, 2.5vw, 48px);
+    font-size: 48px;
     line-height: 114.99999999999999%;
-    letter-spacing: -0.5%;
+    letter-spacing: -0.005em;
     text-align: center;
     vertical-align: bottom;
-    color: #313131;
+    color: rgba(49, 49, 49, 1);
     margin: 0;
   }
 
   .section-subtitle {
     font-family: 'Cleric Sans Text', var(--font-family-subtitle);
-    font-weight: 500;
+    font-weight: 400;
     font-style: normal;
-    font-size: clamp(18px, 1.25vw, 24px);
+    font-size: 24px;
     line-height: 125%;
-    letter-spacing: 0.75%;
+    letter-spacing: 0.0075em;
     text-align: center;
-    color: #6B6B6B;
+    color: rgba(107, 107, 107, 1);
     margin: 0;
+    font-family: Cleric Sans Text;
   }
 
   .foundations-layout {
@@ -140,7 +145,7 @@ const { className = '' } = Astro.props;
   .foundations-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: clamp(18px, 1.25vw, 24px);
+    gap: 24px;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
@@ -210,22 +215,22 @@ const { className = '' } = Astro.props;
 
   .foundation-title {
     font-family: 'GT Alpina', var(--font-family-title);
-    font-weight: 500;
+    font-weight: 400;
     font-style: normal;
     font-size: clamp(24px, 1.67vw, 32px);
     line-height: 120%;
-    letter-spacing: 0%;
+    letter-spacing: 0;
     color: #313131;
     margin: 0;
   }
 
   .foundation-description {
     font-family: 'Cleric Sans Text', var(--font-family-subtitle);
-    font-weight: 500;
+    font-weight: 400;
     font-style: normal;
     font-size: clamp(16px, 1vw, 18px);
     line-height: 140%;
-    letter-spacing: 0%;
+    letter-spacing: 0;
     color: #666666;
     margin: 0;
   }
@@ -252,8 +257,8 @@ const { className = '' } = Astro.props;
   }
 
   .explore-button {
-    width: clamp(150px, 10.31vw, 198px);
-    height: clamp(35px, 2.14vw, 41px);
+    width: 198px;
+    height: 41px;
     background: #000000;
     color: #FFFFFF;
     border: none;
@@ -264,8 +269,6 @@ const { className = '' } = Astro.props;
     padding-left: clamp(18px, 1.25vw, 24px);
     gap: clamp(6px, 0.42vw, 8px);
     font-family: 'Cleric Sans Text', var(--font-family-subtitle);
-    font-weight: 500;
-    font-size: 16px;
     line-height: 1.4;
     cursor: pointer;
     transition: background-color 0.2s ease;
@@ -280,24 +283,139 @@ const { className = '' } = Astro.props;
   }
 
   /* Mobile Styles */
-  @media (max-width: 1023px) {
+  /* Tablet Styles */
+  @media (max-width: 991px) and (min-width: 768px) {
+    .foundations {
+      padding-bottom: 12rem;
+    }
+
+    .section-header {
+      align-items: flex-start;
+      text-align: left;
+      margin: 0 96px;
+    }
+
+    .section-badge {
+      align-self: flex-start;
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .section-title {
+      font-family: 'GT Alpina';
+      font-weight: 400;
+      font-style: normal;
+      font-size: 44px;
+      line-height: 115%;
+      letter-spacing: -0.005em;
+      text-align: left;
+      vertical-align: bottom;
+      color: rgba(49, 49, 49, 1);
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .section-subtitle {
+      font-family: 'Cleric Sans Text';
+      font-weight: 400;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 125%;
+      letter-spacing: 0.0075em;
+      text-align: left;
+      color: rgba(107, 107, 107, 1);
+      margin-left: 0;
+      margin-right: 0;
+    }
+
     .foundations-grid {
       grid-template-columns: 1fr;
       gap: 3rem;
+      justify-items: center;
     }
 
     .foundation-card {
-      align-items: center;
-      text-align: center;
+      align-items: flex-start;
+      text-align: left;
+      width: 642px;
+      height: 538px;
     }
 
     .foundation-card-wide {
-      width: 90vw;
-      max-width: 500px;
+      width: 642px;
+      height: 538px;
     }
 
     .wide-card-text {
-      text-align: center;
+      text-align: left;
+    }
+  }
+
+  /* Mobile Styles */
+  @media (max-width: 767px) {
+    .foundations {
+      padding-bottom: 10rem;
+    }
+
+    .section-header {
+      align-items: flex-start;
+      text-align: left;
+      margin: 0 16px;
+    }
+
+    .section-badge {
+      align-self: flex-start;
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .section-title {
+      font-family: 'GT Alpina';
+      font-weight: 400;
+      font-style: normal;
+      font-size: 36px;
+      line-height: 115%;
+      letter-spacing: -0.005em;
+      text-align: left;
+      vertical-align: bottom;
+      color: rgba(49, 49, 49, 1);
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .section-subtitle {
+      font-family: 'Cleric Sans Text';
+      font-weight: 400;
+      font-style: normal;
+      font-size: 18px;
+      line-height: 125%;
+      letter-spacing: 0.0075em;
+      text-align: left;
+      color: rgba(107, 107, 107, 1);
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .foundations-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      justify-items: center;
+    }
+
+    .foundation-card {
+      align-items: flex-start;
+      text-align: left;
+      width: 408px;
+      height: 387px;
+    }
+
+    .foundation-card-wide {
+      width: 408px;
+      height: 387px;
+    }
+
+    .wide-card-text {
+      text-align: left;
     }
   }
 </style>

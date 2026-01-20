@@ -1,0 +1,147 @@
+---
+// Notification bar component
+export interface Props {
+  className?: string;
+}
+
+const { className = '' } = Astro.props;
+---
+
+<div class={`notification-bar ${className}`} id="notification-bar">
+  <div class="notification-content">
+    <span class="notification-text">Cleric Named a Gartner® Cool Vendor 2025 in AI for SRE and Observability.</span>
+    <a href="#" class="notification-link">Find out more</a>
+  </div>
+  <button class="notification-close" onclick="document.getElementById('notification-bar').style.display='none'">
+    <span class="close-icon">×</span>
+  </button>
+</div>
+
+<style>
+  .notification-bar {
+    position: relative;
+    width: 100%;
+    height: 36px; /* 36px out of 1270px */
+    background-color: #000000;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 8.33%; /* 160px out of 1920px */
+    font-family: 'Cleric Sans Text', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 145%;
+    letter-spacing: 0;
+    text-align: center;
+    vertical-align: middle;
+    z-index: 1001;
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+
+  .notification-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex: 1;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    min-width: 0;
+  }
+
+  .notification-text {
+    color: #ffffff;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex-shrink: 1;
+  }
+
+  .notification-link {
+    font-family: 'Cleric Sans Text', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 145%;
+    letter-spacing: 0;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: underline;
+    text-decoration-style: solid;
+    text-decoration-offset: 0%;
+    text-decoration-thickness: 0%;
+    color: #C29CF1;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+    flex-shrink: 0;
+  }
+
+  .notification-link:hover {
+    opacity: 0.8;
+  }
+
+  .notification-close {
+    position: absolute;
+    right: 8.33%; /* Align with navbar right edge */
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s ease;
+  }
+
+  .notification-close:hover {
+    opacity: 0.7;
+  }
+
+  .close-icon {
+    font-size: 20px;
+    line-height: 1;
+  }
+
+  /* Mobile responsive */
+  @media (max-width: 767px) {
+    .notification-bar {
+      font-family: 'Cleric Sans Text', sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 14px;
+      line-height: 145%;
+      letter-spacing: 0;
+      vertical-align: middle;
+      padding: 0 40px 0 16px;
+    }
+
+    .notification-text {
+      font-family: 'Cleric Sans Text', sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 14px;
+      line-height: 145%;
+      letter-spacing: 0;
+      vertical-align: middle;
+    }
+
+    .notification-close {
+      right: 12px;
+      width: 20px;
+      height: 20px;
+    }
+
+    .close-icon {
+      font-size: 18px;
+    }
+  }
+</style>

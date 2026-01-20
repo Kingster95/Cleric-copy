@@ -13,7 +13,7 @@ const { className = '' } = Astro.props;
       <div class="security-left">
         <div class="section-badge">Security-first</div>
         <h2 class="section-title">Paranoid by design</h2>
-        <p class="section-description">Read-only by default. Every action logged, every investigation auditable. Your data encrypted everywhere and never used for training.</p>
+        <p class="section-description">Read-only by default. Every action logged, every investigation auditable. Your data encrypted everywhere and never used for training. SSO, SAML, RBAC from day one, and pen tested by third parties who actually try to break things.</p>
         <div class="trust-center">
           <span class="trust-link">Learn more in our Trust Center</span>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -73,22 +73,31 @@ const { className = '' } = Astro.props;
   }
 
   .section-badge {
-    width: clamp(95px, 6.35vw, 122px);
-    height: clamp(26px, 1.67vw, 32px);
+    width: 130px;
+    height: 32px;
     border-radius: 4px;
     padding-top: clamp(8px, 0.52vw, 10px);
-    padding-right: clamp(12px, 0.83vw, 16px);
+    padding-right: clamp(13px, 0.83vw, 16px);
     padding-bottom: clamp(8px, 0.52vw, 10px);
-    padding-left: clamp(12px, 0.83vw, 16px);
+    padding-left: clamp(13px, 0.83vw, 16px);
     gap: clamp(3px, 0.21vw, 4px);
+    transform: rotate(0deg);
+    opacity: 1;
     background: #E0E0E0;
-    color: #666666;
-    font-family: 'Cleric Sans Text', var(--font-family-subtitle);
-    font-weight: 600;
-    font-style: normal;
+    color: rgba(107, 107, 107, 1);
+    font-family: 'Cleric Sans Text', sans-serif;
     font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
     line-height: 120%;
-    letter-spacing: -0.25%;
+    letter-spacing: -0.0025em;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    box-sizing: border-box;
+    letter-spacing: -0.0025em;
     text-align: center;
     display: flex;
     align-items: center;
@@ -102,7 +111,7 @@ const { className = '' } = Astro.props;
     font-style: normal;
     font-size: clamp(32px, 2.5vw, 48px);
     line-height: 114.99999999999999%;
-    letter-spacing: -0.5%;
+    letter-spacing: -0.005em;
     color: #313131;
     margin: 0;
   }
@@ -113,7 +122,7 @@ const { className = '' } = Astro.props;
     font-style: normal;
     font-size: clamp(16px, 0.94vw, 18px);
     line-height: 140%;
-    letter-spacing: 0%;
+    letter-spacing: 0;
     color: #6B6B6B;
     margin: 0;
     vertical-align: middle;
@@ -132,7 +141,7 @@ const { className = '' } = Astro.props;
     font-style: normal;
     font-size: 15px;
     line-height: 140%;
-    letter-spacing: 0%;
+    letter-spacing: 0;
     color: #666666;
     text-align: center;
     vertical-align: middle;
@@ -156,19 +165,142 @@ const { className = '' } = Astro.props;
   }
 
   /* Mobile Styles */
-  @media (max-width: 1023px) {
-    .security-content {
-      grid-template-columns: 1fr;
-      gap: 3rem;
-      text-align: center;
+  /* Tablet Styles */
+  @media (max-width: 991px) and (min-width: 768px) {
+    .security {
+      min-height: 900px;
+      padding-top: 120px;
+      padding-bottom: 120px;
+    }
+
+    .container {
+      margin: 0 96px;
     }
 
     .security-left {
-      align-items: center;
+      align-items: flex-start;
+    }
+
+    .section-badge {
+      align-self: flex-start;
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .section-title {
+      font-family: 'GT Alpina';
+      font-weight: 400;
+      font-style: normal;
+      font-size: 44px;
+      line-height: 115%;
+      letter-spacing: -0.005em;
+      text-align: left;
+      vertical-align: bottom;
+      color: rgba(49, 49, 49, 1);
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .section-description {
+      font-family: 'Cleric Sans Text';
+      font-weight: 400;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 125%;
+      letter-spacing: 0.0075em;
+      text-align: left;
+      color: rgba(107, 107, 107, 1);
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .security-content {
+      grid-template-columns: 1fr;
+      gap: 25%;
+      text-align: left;
+      margin-right: 45%;
+    }
+
+    .security-left {
+      align-items: flex-start;
     }
 
     .security-right {
       height: clamp(300px, 50vw, 400px);
+    }
+
+    .security-image {
+      width: 500px;
+      height: 395px;
+      margin-left: 55%;
+    }
+  }
+
+  /* Mobile Styles */
+  @media (max-width: 767px) {
+    .security {
+      min-height: 800px;
+    }
+
+    .container {
+      margin: 0 16px;
+    }
+
+    .security-left {
+      align-items: flex-start;
+      margin-right: 15%;
+    }
+
+    .section-badge {
+      align-self: flex-start;
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .section-title {
+      font-family: 'GT Alpina';
+      font-weight: 400;
+      font-style: normal;
+      font-size: 36px;
+      line-height: 115%;
+      letter-spacing: -0.005em;
+      text-align: left;
+      vertical-align: bottom;
+      color: rgba(49, 49, 49, 1);
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .section-description {
+      font-family: 'Cleric Sans Text';
+      font-weight: 400;
+      font-style: normal;
+      font-size: 16px;
+      line-height: 125%;
+      letter-spacing: 0.0075em;
+      text-align: left;
+      color: rgba(107, 107, 107, 1);
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .security-content {
+      grid-template-columns: 1fr;
+      gap: 25%;
+      text-align: left;
+    }
+
+    .security-left {
+      align-items: flex-start;
+    }
+
+    .security-right {
+      height: clamp(300px, 50vw, 400px);
+    }
+
+    .security-image {
+      width: 408px;
+      height: 323px;
     }
   }
 </style>

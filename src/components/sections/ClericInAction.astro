@@ -95,8 +95,8 @@ const features = [
   }
 
   .section-badge {
-    width: clamp(95px, 7.3vw, 140px);
-    height: clamp(26px, 1.67vw, 32px);
+    width: 150px;
+    height: 32px;
     border-radius: 4px;
     padding-top: clamp(8px, 0.52vw, 10px);
     padding-right: clamp(13px, 0.83vw, 16px);
@@ -106,10 +106,19 @@ const features = [
     transform: rotate(0deg);
     opacity: 1;
     background: #E0E0E0;
-    color: #666666;
-    font-family: 'Cleric Sans Text', var(--font-family-subtitle);
+    color: rgba(107, 107, 107, 1);
+    font-family: 'Cleric Sans Text', sans-serif;
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 500;
+    font-style: normal;
+    line-height: 120%;
+    letter-spacing: -0.0025em;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    box-sizing: border-box;
     letter-spacing: 0.01em;
     display: inline-flex;
     align-items: center;
@@ -123,7 +132,7 @@ const features = [
     font-style: normal;
     font-size: clamp(32px, 2.5vw, 48px);
     line-height: 114.99999999999999%;
-    letter-spacing: -0.5%;
+    letter-spacing: -0.005em;
     text-align: center;
     vertical-align: bottom;
     color: #313131;
@@ -136,7 +145,7 @@ const features = [
     font-style: normal;
     font-size: clamp(18px, 1.25vw, 24px);
     line-height: 125%;
-    letter-spacing: 0.75%;
+    letter-spacing: 0.0075em;
     text-align: center;
     color: #6B6B6B;
     margin: 0;
@@ -150,5 +159,88 @@ const features = [
     align-items: center;
   }
 
+  /* Tablet Styles */
+  @media (max-width: 991px) and (min-width: 768px) {
+    .section-header {
+      align-items: flex-start;
+      text-align: left;
+      margin: 0 96px;
+    }
+
+    .section-badge {
+      align-self: flex-start;
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .section-title {
+      font-family: 'GT Alpina';
+      font-weight: 400;
+      font-style: normal;
+      font-size: 44px;
+      line-height: 115%;
+      letter-spacing: -0.005em;
+      text-align: left;
+      vertical-align: bottom;
+      color: rgba(49, 49, 49, 1);
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .section-subtitle {
+      font-family: 'Cleric Sans Text';
+      font-weight: 400;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 125%;
+      letter-spacing: 0.0075em;
+      text-align: left;
+      color: rgba(107, 107, 107, 1);
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+
+  /* Mobile Styles */
+  @media (max-width: 767px) {
+    .section-header {
+      align-items: flex-start;
+      text-align: left;
+      margin: 0 16px;
+    }
+
+    .section-badge {
+      align-self: flex-start;
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .section-title {
+      font-family: 'GT Alpina';
+      font-weight: 400;
+      font-style: normal;
+      font-size: 36px;
+      line-height: 115%;
+      letter-spacing: -0.005em;
+      text-align: left;
+      vertical-align: bottom;
+      color: rgba(49, 49, 49, 1);
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .section-subtitle {
+      font-family: 'Cleric Sans Text';
+      font-weight: 400;
+      font-style: normal;
+      font-size: 18px;
+      line-height: 125%;
+      letter-spacing: 0.0075em;
+      text-align: left;
+      color: rgba(107, 107, 107, 1);
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
 
 </style>
